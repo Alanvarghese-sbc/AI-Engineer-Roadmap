@@ -55,3 +55,34 @@ It returns the data type of a variable's current value at runtime, e.g. `type(23
 
 **7. Why should we use meaningful variable names?**
 Descriptive names (`first_name`, `total_price`) make code self-documenting and easier to read, debug, and maintain — compared to vague names like `a`, `x`, or `abc`, which force a reader to guess what they represent.
+
+# Lesson 3: Data Types — Interview Questions & Answers
+
+**1. What is a data type?**
+A classification that tells Python (and the programmer) what kind of value a variable holds and what operations can be performed on it — e.g. numbers can be added, strings can be concatenated.
+
+**2. Name five basic Python data types.**
+`int`, `float`, `str`, `bool`, and `NoneType` (also commonly listed: `list`, `dict`, `tuple`, `set`).
+
+**3. Difference between `int` and `float`.**
+`int` represents whole numbers with no decimal point (`23`, `-5`). `float` represents numbers with a decimal point (`1.69`, `3.14159`), used when fractional precision is needed.
+
+**4. Difference between `"25"` and `25`.**
+`25` is an `int` — you can do math with it (`25 + 5 = 30`). `"25"` is a `str` — the same `+` operator instead concatenates text (`"25" + "5"` → `"255"`). Quotes always make it a string, regardless of what's inside them.
+
+**5. What is `None`?**
+A special value representing "nothing" or "no value yet" — Python's `NoneType`. It's commonly used as a placeholder before real data is available, e.g. `user_profile = None`.
+
+**6. What is dynamic typing?**
+The ability of a variable to hold a value of one type and later be reassigned to a value of a completely different type, without declaring a type up front:
+```python
+value = 10        # int
+value = "Hello"    # now str
+value = False      # now bool
+```
+
+**7. What does `type()` do?**
+Returns the data type of the value a variable currently holds, e.g. `type(23)` → `<class 'int'>`.
+
+**8. Difference between mutable and immutable? (basic answer)**
+Mutable objects can be changed in place after creation (e.g. `list`, `dict`, `set`). Immutable objects cannot — any "change" actually creates a new object (e.g. `int`, `float`, `bool`, `str`).

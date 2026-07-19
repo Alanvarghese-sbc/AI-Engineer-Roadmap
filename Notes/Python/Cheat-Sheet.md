@@ -57,3 +57,54 @@ print(type(name))
 - `=` → **assign**, not "equals"
 - No need to declare type upfront
 - `type()` tells you the *current* type — it can change after reassignment
+
+# Lesson 3: Data Types — Cheat Sheet
+
+## The 5 Basics
+
+| Type | Example | `type()` output | Notes |
+|---|---|---|---|
+| `int` | `age = 23` | `<class 'int'>` | whole numbers |
+| `float` | `height = 1.69` | `<class 'float'>` | has a decimal point |
+| `str` | `name = "Alan"` | `<class 'str'>` | anything in quotes, even `"25"` |
+| `bool` | `is_student = True` | `<class 'bool'>` | only `True` / `False` |
+| `NoneType` | `data = None` | `<class 'NoneType'>` | means "nothing yet" |
+
+## Quick Checks
+
+```python
+type(23)        # <class 'int'>
+type(1.69)      # <class 'float'>
+type("Alan")    # <class 'str'>
+type(True)      # <class 'bool'>
+type(None)      # <class 'NoneType'>
+```
+
+## `+` Behaves Differently by Type
+
+```python
+23 + 5        # 28   (int addition)
+"23" + "5"    # "235" (string concatenation)
+"23" + 5      # ❌ TypeError — can't mix str and int with +
+```
+
+## Dynamic Typing
+
+```python
+value = 10        # int
+value = "Hello"    # str
+value = False      # bool
+```
+Same variable, type changes freely on reassignment.
+
+## Mutable vs Immutable — Quick Reference
+
+| Immutable | Mutable |
+|---|---|
+| `int`, `float`, `bool`, `str` | `list`, `dict`, `set` |
+
+## Gotchas
+
+- `"99.99"` is a **string**, not a float — quotes always mean `str`.
+- `age + 5` fails if `age` is a string like `"23"`.
+- `None` ≠ `0`, `False`, or `""` — it specifically means "no value."
