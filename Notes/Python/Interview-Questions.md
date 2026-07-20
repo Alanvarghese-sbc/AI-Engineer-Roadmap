@@ -86,3 +86,28 @@ Returns the data type of the value a variable currently holds, e.g. `type(23)` �
 
 **8. Difference between mutable and immutable? (basic answer)**
 Mutable objects can be changed in place after creation (e.g. `list`, `dict`, `set`). Immutable objects cannot — any "change" actually creates a new object (e.g. `int`, `float`, `bool`, `str`).
+# Lesson 4: Type Casting — Interview Questions & Answers
+
+**1. What is type casting?**
+Converting a value from one data type to another — e.g. turning the string `"23"` into the integer `23` with `int("23")` — so operations valid for that type (like arithmetic) can be performed.
+
+**2. What is the difference between implicit and explicit conversion?**
+**Implicit** conversion happens automatically, done by Python itself when it's safe (e.g. `10 + 5.5` automatically converts `10` to `10.0`). **Explicit** conversion is done manually by the programmer using functions like `int()`, `float()`, `str()`, `bool()`.
+
+**3. What does `int()` do?**
+Converts a value to an integer. For floats it truncates (removes) the decimal part rather than rounding — `int(25.99)` → `25`. For numeric strings it parses the number — `int("100")` → `100`.
+
+**4. What does `float()` do?**
+Converts a value to a floating-point number, e.g. `float(15)` → `15.0`, `float("10")` → `10.0`.
+
+**5. What does `str()` do?**
+Converts a value of any type into its string representation, e.g. `str(100)` → `"100"`, `str(True)` → `"True"`.
+
+**6. What does `bool()` do?**
+Converts a value to `True` or `False` based on Python's truthy/falsy rules. Falsy values include `False`, `0`, `0.0`, `""`, and `None`; virtually everything else is truthy.
+
+**7. What happens if you run `int("Alan")`?**
+It raises a `ValueError: invalid literal for int()`, because `"Alan"` isn't a string that represents a number, so Python can't safely convert it.
+
+**8. Why is type casting important when using `input()`?**
+`input()` always returns a **string**, even if the user types a number. If you need to do math with that input (e.g. calculate an average from entered marks), you must explicitly convert it with `int()` or `float()` first, or you'll get a `TypeError` or unexpected string concatenation instead of addition.
