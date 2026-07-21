@@ -1,0 +1,11 @@
+print("===========================")
+print("      MY DREAM COMPANY")
+print("===========================")
+print()
+print("Company     : newBrand")
+print("Role        : Main Role")
+print("Expected Salary   : high")
+print("Skills Required    : Python")
+
+print()
+print("I will achieve this.")
