@@ -111,3 +111,32 @@ It raises a `ValueError: invalid literal for int()`, because `"Alan"` isn't a st
 
 **8. Why is type casting important when using `input()`?**
 `input()` always returns a **string**, even if the user types a number. If you need to do math with that input (e.g. calculate an average from entered marks), you must explicitly convert it with `int()` or `float()` first, or you'll get a `TypeError` or unexpected string concatenation instead of addition.
+# Lesson 5: Operators — Interview Questions & Answers
+
+> This lesson's source material didn't include a dedicated interview Q&A section, so these are drawn directly from its core concepts to keep the format consistent.
+
+**1. What is an operator in Python?**
+A symbol that performs an operation on one or more values (operands) — e.g. in `a + b`, `+` is the operator and `a`, `b` are the operands.
+
+**2. What's the difference between `/` and `//`?**
+`/` is regular division and **always returns a float**, even for evenly divisible numbers (`10 / 2` → `5.0`). `//` is floor division — it divides and then drops the decimal part, returning the floor of the result (`10 // 3` → `3`).
+
+**3. What does the modulus operator (`%`) do, and what's it commonly used for?**
+It returns the **remainder** of a division (`10 % 3` → `1`). It's commonly used to check even/odd (`n % 2 == 0`) or to detect divisibility.
+
+**4. What is the difference between `=` and `==`?**
+`=` is the **assignment** operator — it stores a value in a variable. `==` is the **comparison** operator — it checks whether two values are equal and returns `True`/`False`.
+
+**5. What do assignment shortcut operators like `+=` do?**
+They combine an operation with assignment in one step. `x += 5` is shorthand for `x = x + 5`. Similarly `-=`, `*=`, `/=` shorten subtraction, multiplication, and division assignment.
+
+**6. Explain `and`, `or`, and `not`.**
+- `and` → `True` only if **both** operands are `True`.
+- `or` → `True` if **at least one** operand is `True`; `False` only if both are `False`.
+- `not` → reverses a Boolean value (`not True` → `False`).
+
+**7. What is the difference between `==` and `is`?**
+`==` checks if two values are **equal**. `is` checks if two variables refer to the **same object in memory** (identity), which is a stricter, different check.
+
+**8. What does operator precedence mean, and how do parentheses affect it?**
+Precedence determines the order operations are evaluated in when an expression has multiple operators — similar to BODMAS/PEMDAS in math (e.g. `5 + 2 * 3` evaluates the `*` first, giving `11`). Parentheses `()` override default precedence and make evaluation order explicit: `(5 + 2) * 3` → `21`.

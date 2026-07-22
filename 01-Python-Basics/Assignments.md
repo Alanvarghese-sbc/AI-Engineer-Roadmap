@@ -144,12 +144,7 @@ price = "99.99"   # this is a string, not a float, because of the quotes
 
 - [ ] Complete all 4 practice exercises
 - [ ] Build the **Employee Information System** mini project
-- [ ] Commit your changes to Git with a clear message:
 
-```bash
-git add .
-git commit -m "Complete Lesson 3: Python data types"
-```
 # Lesson 4: Type Casting — Assignments
 
 ## 🧠 Predict Before You Code
@@ -298,4 +293,155 @@ int(float("12.5"))   # 12
 - [ ] Answer the "predict before you code" questions first
 - [ ] Complete all 6 practice exercises
 - [ ] Build the **Student Marks Converter** mini project
-- [ ] Commit your changes to Git
+
+
+# Lesson 5: Operators — Assignments
+
+## 🧠 Practice: Predict Arithmetic Output
+
+Predict before running, then check against the solutions below.
+
+```python
+print(20 + 5)
+print(20 - 5)
+print(20 * 5)
+print(20 / 5)
+print(20 // 3)
+print(20 % 3)
+print(2 ** 5)
+```
+
+## 💻 Practice: Predict Comparison & Logical Output
+
+```python
+print(5 > 2)
+print(5 == 2)
+print(5 != 2)
+print(True and False)
+print(True or False)
+print(not True)
+```
+
+### ✅ Solutions (both predict exercises)
+
+```python
+# Arithmetic
+print(20 + 5)     # 25
+print(20 - 5)      # 15
+print(20 * 5)        # 100
+print(20 / 5)          # 4.0
+print(20 // 3)           # 6
+print(20 % 3)              # 2
+print(2 ** 5)                # 32
+
+# Comparison & Logical
+print(5 > 2)          # True
+print(5 == 2)           # False
+print(5 != 2)             # True
+print(True and False)       # False
+print(True or False)          # True
+print(not True)                 # False
+```
+
+## 🧠 Quick Quiz
+
+Answer without running Python first:
+
+```python
+print(15 // 4)
+print(15 % 4)
+print(2 ** 4)
+print(10 == 10)
+print(10 != 10)
+```
+
+### ✅ Quiz Answers
+
+```python
+print(15 // 4)   # 3   (15 / 4 = 3.75, floor to 3)
+print(15 % 4)      # 3   (15 = 3*4 + 3, remainder 3)
+print(2 ** 4)         # 16  (2×2×2×2)
+print(10 == 10)         # True
+print(10 != 10)           # False
+```
+
+## 🛠 Mini Project — Simple Calculator
+
+Starting variables:
+
+```python
+num1 = 25
+num2 = 10
+```
+
+Print Addition, Subtraction, Multiplication, Division, Floor Division, Modulus, Power:
+
+```
+Addition       : 35
+Subtraction    : 15
+Multiplication : 250
+Division       : 2.5
+Floor Division : 2
+Modulus        : 5
+Power          : 95367431640625
+```
+
+### ✅ Solution
+
+```python
+num1 = 25
+num2 = 10
+
+print("Addition       :", num1 + num2)
+print("Subtraction    :", num1 - num2)
+print("Multiplication :", num1 * num2)
+print("Division       :", num1 / num2)
+print("Floor Division :", num1 // num2)
+print("Modulus        :", num1 % num2)
+print("Power          :", num1 ** num2)
+```
+
+## 🎯 Today's Assignment
+
+1. Complete the **Simple Calculator** mini project.
+2. Create a second program demonstrating assignment, comparison, and logical operators.
+
+
+### ✅ Solution — Operators Demo Program
+
+```python
+# Assignment operators
+x = 10
+print("Start value:", x)
+
+x += 5
+print("After += 5:", x)
+
+x -= 3
+print("After -= 3:", x)
+
+x *= 2
+print("After *= 2:", x)
+
+x /= 4
+print("After /= 4:", x)
+
+# Comparison operators
+a = 10
+b = 20
+
+print("a == b :", a == b)
+print("a != b :", a != b)
+print("a > b  :", a > b)
+print("a < b  :", a < b)
+print("a >= b :", a >= b)
+print("a <= b :", a <= b)
+
+# Logical operators
+is_logged_in = True
+has_permission = False
+
+print("Can access (and) :", is_logged_in and has_permission)
+print("Can view (or)    :", is_logged_in or has_permission)
+print("Not logged in    :", not is_logged_in)
+```

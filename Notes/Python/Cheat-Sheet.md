@@ -163,3 +163,65 @@ int(float("12.5"))   # ✅ 12 — float first, then int
 age = input("Enter age: ")   # always returns a STRING
 age = int(age)                 # convert before doing math
 ```
+# Lesson 5: Operators — Cheat Sheet
+
+## Arithmetic
+
+| Op | Meaning | Example | Result |
+|---|---|---|---|
+| `+` | Add | `5 + 2` | `7` |
+| `-` | Subtract | `5 - 2` | `3` |
+| `*` | Multiply | `5 * 2` | `10` |
+| `/` | Divide (always float) | `5 / 2` | `2.5` |
+| `//` | Floor divide | `5 // 2` | `2` |
+| `%` | Modulus (remainder) | `5 % 2` | `1` |
+| `**` | Power | `5 ** 2` | `25` |
+
+## Assignment Shortcuts
+
+```python
+x += n   # x = x + n
+x -= n    # x = x - n
+x *= n     # x = x * n
+x /= n      # x = x / n
+```
+
+## Comparison (returns bool)
+
+| Op | Meaning |
+|---|---|
+| `==` | Equal |
+| `!=` | Not equal |
+| `>` | Greater than |
+| `<` | Less than |
+| `>=` | Greater or equal |
+| `<=` | Less or equal |
+
+## Logical
+
+| Op | Rule |
+|---|---|
+| `and` | True only if BOTH are True |
+| `or` | True if AT LEAST ONE is True |
+| `not` | Flips True ↔ False |
+
+## Identity vs Membership
+
+```python
+x is None        # same object? (identity)
+"A" in "Alan"    # exists inside? (membership)
+```
+
+## Precedence (high → low, simplified)
+
+```
+()  →  **  →  * / // %  →  + -  →  comparisons  →  not  →  and  →  or
+```
+
+**Rule of thumb:** when unsure, use parentheses `()` to make order explicit.
+
+## Gotchas
+
+- `/` always returns `float`, even `10 / 2` → `5.0`
+- `//` truncates toward negative infinity, not just "removes decimals" for negatives
+- `==` compares **value**; `is` compares **identity** — not the same thing
