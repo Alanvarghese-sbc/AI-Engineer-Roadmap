@@ -1,0 +1,17 @@
+name = input("Enter Your name:")
+age = int(input("Enter your Age:"))
+college = input("Enter your college")
+course = input("Enter your Course")
+cgpa = float("Enter your CGPA")
+
+print("===============================================")
+print("               Student Regsitration   ")
+print("===============================================")
+print(f"Name   {name}")
+print(f"Age    {age}")
+print(f"Collge {college}")
+print(f"Course {course}")
+print(f"CGPA   {cgpa}")
+print("")
+print("===============================================")
+

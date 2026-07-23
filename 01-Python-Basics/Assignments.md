@@ -445,3 +445,163 @@ print("Can access (and) :", is_logged_in and has_permission)
 print("Can view (or)    :", is_logged_in or has_permission)
 print("Not logged in    :", not is_logged_in)
 ```
+
+# Lesson 6: User Input — Assignments
+
+## 💻 Practice Exercises
+
+Location: `Practice/Python/Module-01/`
+
+**Exercise 1** — Ask for the user's name, print `Hello <name>`.
+
+**Exercise 2** — Ask for age, print `Next year you will be <age+1>.`
+
+**Exercise 3** — Ask for height, print `Your height is <height> meters.`
+
+**Exercise 4** — Ask for favorite programming language, print `Python is a great language!` (or reflect their answer).
+
+**Exercise 5** — Take two numbers, print Sum, Difference, Product, Division.
+
+### ✅ Solutions
+
+```python
+# Exercise 1
+name = input("Enter your name: ")
+print("Hello", name)
+
+# Exercise 2
+age = int(input("Enter your age: "))
+print("Next year you will be", age + 1, "years old.")
+
+# Exercise 3
+height = float(input("Enter your height in meters: "))
+print("Your height is", height, "meters.")
+
+# Exercise 4
+language = input("Enter your favorite programming language: ")
+print(language, "is a great language!")
+
+# Exercise 5
+num1 = int(input("Enter first number: "))
+num2 = int(input("Enter second number: "))
+
+print("Sum        :", num1 + num2)
+print("Difference :", num1 - num2)
+print("Product    :", num1 * num2)
+print("Division   :", num1 / num2)
+```
+
+## 🛠 Mini Project 1 — Student Registration System
+
+Take input: Name, Age, College, Course, CGPA. Output:
+
+```
+==========================
+ STUDENT REGISTRATION
+==========================
+
+Name      :
+Age       :
+College   :
+Course    :
+CGPA      :
+
+==========================
+```
+
+### ✅ Solution
+
+```python
+name = input("Enter your name: ")
+age = int(input("Enter your age: "))
+college = input("Enter your college: ")
+course = input("Enter your course: ")
+cgpa = float(input("Enter your CGPA: "))
+
+print("==========================")
+print(" STUDENT REGISTRATION")
+print("==========================")
+print()
+print("Name      :", name)
+print("Age       :", age)
+print("College   :", college)
+print("Course    :", course)
+print("CGPA      :", cgpa)
+print()
+print("==========================")
+```
+
+## 🛠 Mini Project 2 — BMI Calculator
+
+Ask for Weight (kg) and Height (m). Formula: `BMI = weight / (height × height)`.
+
+### ✅ Solution
+
+```python
+weight = float(input("Enter your weight in kg: "))
+height = float(input("Enter your height in meters: "))
+
+bmi = weight / (height * height)
+
+print("Your BMI is:", bmi)
+```
+
+## 🛠 Mini Project 3 — Simple Interest Calculator
+
+Ask for Principal, Rate, Time. Formula: `SI = (P × R × T) / 100`.
+
+### ✅ Solution
+
+```python
+principal = float(input("Enter the principal amount: "))
+rate = float(input("Enter the rate of interest: "))
+time = float(input("Enter the time period (years): "))
+
+simple_interest = (principal * rate * time) / 100
+
+print("Simple Interest:", simple_interest)
+```
+
+## 🎯 Today's Assignment
+
+- [ ] Complete the 5 practice exercises
+- [ ] Build the Student Registration System
+- [ ] Build the BMI Calculator
+- [ ] Build the Simple Interest Calculator
+
+```bash
+git add .
+git commit -m "Complete Lesson 6: User Input"
+```
+
+## 🧠 Final Challenge (Think Before Running)
+
+**Q1**
+```python
+age = input("Enter age: ")
+print(type(age))
+```
+User enters `23`. What prints?
+
+**Q2**
+```python
+num1 = input("First: ")
+num2 = input("Second: ")
+print(num1 + num2)
+```
+User enters `5` then `6`. What prints?
+
+**Q3**
+```python
+num = int(input("Enter: "))
+print(num * 2)
+```
+User enters `8`. What prints?
+
+### ✅ Final Challenge Answers
+
+```text
+Q1 → <class 'str'>          (input() always returns a string, even for "23")
+Q2 → 56                     (string concatenation, NOT addition — "5" + "6")
+Q3 → 16                     (converted to int first, then 8 * 2 = 16)
+```
