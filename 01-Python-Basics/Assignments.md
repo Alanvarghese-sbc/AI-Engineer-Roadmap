@@ -605,3 +605,131 @@ Q1 → <class 'str'>          (input() always returns a string, even for "23")
 Q2 → 56                     (string concatenation, NOT addition — "5" + "6")
 Q3 → 16                     (converted to int first, then 8 * 2 = 16)
 ```
+# Lesson 7: Strings (Part 1) — Assignments
+
+## 🧠 Predict Before You Run
+
+```python
+word = "Python"
+
+# Q1
+print(word[0])
+
+# Q2
+print(word[3])
+
+# Q3
+print(word[-1])
+
+# Q4
+print(len(word))
+
+# Q5
+word2 = ""
+print(len(word2))
+```
+
+### ✅ Answers
+
+```text
+Q1 → P    (index 0 is the first character)
+Q2 → h    (P-y-t-h → index 3 is 'h')
+Q3 → n    (negative index -1 is the last character)
+Q4 → 6    ("Python" has 6 characters)
+Q5 → 0    (empty string has zero length)
+```
+
+## 💻 Practice Exercises
+
+Location: `Practice/Python/Module-01/`
+
+1. Print the first character of your name.
+2. Print the last character.
+3. Print the length of your city.
+4. Print the length of your college name.
+5. Create a multiline string introducing yourself.
+
+### ✅ Solutions
+
+```python
+name = "Alan Varghese"
+city = "Kottayam"
+college = "MG University"
+
+# 1. First character of name
+print(name[0])
+
+# 2. Last character of name
+print(name[-1])
+
+# 3. Length of city
+print(len(city))
+
+# 4. Length of college name
+print(len(college))
+
+# 5. Multiline string introduction
+intro = """
+Hi, I'm Alan Varghese.
+I'm from Kottayam, and I studied at MG University.
+I'm currently learning Python on my way to becoming an AI Engineer.
+"""
+print(intro)
+```
+
+## 🛠 Mini Project 1 — Personal Information Analyzer
+
+Ask for the user's name, then print Name, Number of characters, First character, Last character.
+
+Example:
+```
+Enter your name: Alan
+
+Name : Alan
+Length : 4
+First Character : A
+Last Character : n
+```
+
+### ✅ Solution
+
+```python
+name = input("Enter your name: ")
+
+print()
+print("Name :", name)
+print("Length :", len(name))
+print("First Character :", name[0])
+print("Last Character :", name[-1])
+```
+
+## 🛠 Mini Project 2 — Username Analyzer
+
+Same idea, for a username.
+
+Example:
+```
+Username : Alan123
+Length : 7
+First Character : A
+Last Character : 3
+```
+
+### ✅ Solution
+
+```python
+username = input("Enter username: ")
+
+print()
+print("Username :", username)
+print("Length :", len(username))
+print("First Character :", username[0])
+print("Last Character :", username[-1])
+```
+
+## 🎯 Today's Assignment
+
+- [ ] Complete the 5 prediction questions
+- [ ] Build the Personal Information Analyzer
+- [ ] Build the Username Analyzer
+- [ ] Finish all 5 practice exercises

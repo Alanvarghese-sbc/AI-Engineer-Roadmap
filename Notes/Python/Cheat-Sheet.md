@@ -225,3 +225,64 @@ x is None        # same object? (identity)
 - `/` always returns `float`, even `10 / 2` → `5.0`
 - `//` truncates toward negative infinity, not just "removes decimals" for negatives
 - `==` compares **value**; `is` compares **identity** — not the same thing
+# Lesson 7: Strings (Part 1) — Cheat Sheet
+
+## Creating Strings
+
+```python
+name = "Alan"       # double quotes
+name = 'Alan'         # single quotes — same thing
+message = """
+Multi
+line
+string
+"""
+```
+
+## Length
+
+```python
+len("Python")   # 6
+len("")           # 0
+len(" ")            # 1
+```
+
+## Indexing
+
+```
+Character :  P  y  t  h  o  n
+Positive  :  0  1  2  3  4  5
+Negative  : -6 -5 -4 -3 -2 -1
+```
+
+```python
+word = "Python"
+word[0]     # 'P'   first character
+word[-1]     # 'n'   last character
+word[3]       # 'h'   4th character
+```
+
+## Common Patterns
+
+```python
+name[0]      # first character
+name[-1]      # last character
+len(name)      # total number of characters
+```
+
+## Errors to Watch For
+
+```python
+name = "Alan"
+name[10]   # ❌ IndexError: string index out of range
+```
+
+## Quick Reference Table
+
+| Task | Code |
+|---|---|
+| First character | `s[0]` |
+| Last character | `s[-1]` |
+| Length | `len(s)` |
+| Nth character | `s[n-1]` (0-indexed) |
+| Nth from end | `s[-n]` |

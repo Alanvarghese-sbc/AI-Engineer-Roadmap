@@ -140,3 +140,22 @@ They combine an operation with assignment in one step. `x += 5` is shorthand for
 
 **8. What does operator precedence mean, and how do parentheses affect it?**
 Precedence determines the order operations are evaluated in when an expression has multiple operators — similar to BODMAS/PEMDAS in math (e.g. `5 + 2 * 3` evaluates the `*` first, giving `11`). Parentheses `()` override default precedence and make evaluation order explicit: `(5 + 2) * 3` → `21`.
+# Lesson 7: Strings (Part 1) — Interview Questions & Answers
+
+**1. What is a string?**
+A sequence of characters — letters, digits, symbols, spaces, or emojis — enclosed in quotes (single, double, or triple), e.g. `"Alan"`.
+
+**2. How do you create a string in Python?**
+By wrapping text in single quotes (`'Alan'`), double quotes (`"Alan"`), or triple quotes for multi-line strings (`"""..."""`). All are valid; single and double quotes are interchangeable for simple strings.
+
+**3. What does `len()` do?**
+Returns the number of characters in a string (its length), including spaces — e.g. `len("Python")` → `6`, `len(" ")` → `1`, `len("")` → `0`.
+
+**4. What is indexing?**
+Accessing an individual character in a string by its position number. Python strings are zero-indexed, so the first character is at index `0`, the second at `1`, and so on.
+
+**5. What is the difference between positive and negative indexing?**
+Positive indexing counts from the start (`0` = first character, `1` = second, ...). Negative indexing counts from the end (`-1` = last character, `-2` = second-to-last, ...). Both refer to the same characters — just counted from different directions.
+
+**6. What happens if you access an index that doesn't exist?**
+Python raises an `IndexError: string index out of range`, because the string simply doesn't have a character at that position.

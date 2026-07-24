@@ -1,0 +1,112 @@
+# Lesson 7: Strings (Part 1) — Notes
+
+**Estimated Time:** 5–6 hours (spread over 2–3 days)
+**Difficulty:** ⭐⭐⭐☆☆
+
+## What is a String?
+
+A **string** is a sequence of characters — letters, numbers, spaces, symbols, emojis, special characters.
+
+```python
+name = "Alan"
+city = "Kottayam"
+course = "MCA"
+password = "Alan@123"
+```
+
+All of these are strings.
+
+## Why Strings Matter for AI Engineering
+
+Nearly everything in AI involves processing text: ChatGPT/LangChain prompts, PDF text, emails, API responses, user input, search queries, NLP, RAG systems, voice transcription. Strings are a foundational skill for this whole field.
+
+## Creating Strings
+
+**Double quotes:**
+```python
+name = "Alan"
+```
+
+**Single quotes** — equally valid:
+```python
+name = 'Alan'
+```
+
+**Triple quotes** — for multi-line strings:
+```python
+message = """
+Hello
+Welcome
+to Python
+"""
+```
+
+## Printing Strings
+
+```python
+name = "Alan"
+print(name)   # Alan
+```
+
+## String Length — `len()`
+
+```python
+name = "Alan"
+print(len(name))   # 4
+```
+
+```python
+print(len("Python"))   # 6
+print(len(""))            # 0   — empty string
+print(len(" "))             # 1   — a space still counts as a character
+```
+
+## String Indexing
+
+Every character has a position, starting at `0`:
+
+```
+Character :  P  y  t  h  o  n
+Index     :  0  1  2  3  4  5
+```
+
+```python
+name = "Python"
+print(name[0])   # P
+print(name[1])    # y
+print(name[5])     # n
+```
+
+## Negative Indexing
+
+Python can count backwards from the end, starting at `-1`:
+
+```
+Character :  P  y  t  h  o  n
+Index     : -6 -5 -4 -3 -2 -1
+```
+
+```python
+print(name[-1])   # n
+print(name[-2])    # o
+print(name[-6])     # P
+```
+
+Negative indexing is very handy for grabbing the last character(s) without needing to know the string's length.
+
+## Index Error
+
+```python
+name = "Alan"
+print(name[10])
+```
+
+```
+IndexError: string index out of range
+```
+
+`"Alan"` only has 4 characters (valid indices `0`–`3`, or `-1`–`-4`), so index `10` doesn't exist.
+
+## 📚 New Concepts
+
+String · Character · Index · Positive Index · Negative Index · `len()`
