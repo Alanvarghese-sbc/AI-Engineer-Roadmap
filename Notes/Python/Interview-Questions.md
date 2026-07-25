@@ -159,3 +159,21 @@ Positive indexing counts from the start (`0` = first character, `1` = second, ..
 
 **6. What happens if you access an index that doesn't exist?**
 Python raises an `IndexError: string index out of range`, because the string simply doesn't have a character at that position.
+
+# Lesson 7 (Part 2): String Slicing — Interview Questions & Answers
+
+**1. What is slicing?**
+Extracting a portion (a range of characters) from a string using `string[start:stop:step]`, rather than accessing just one character at a time via indexing.
+
+**2. Why is the stop index excluded?**
+It's a deliberate Python design convention: `start` is inclusive and `stop` is exclusive. One practical benefit is that the length of a slice `s[a:b]` is always simply `b - a`, and consecutive slices like `s[0:2]` and `s[2:4]` line up cleanly without overlap or gaps.
+
+**3. What does `[::-1]` do?**
+Reverses the string. Omitting `start` and `stop` means "the whole string," and `step = -1` walks through it backwards, from the last character to the first.
+
+**4. Difference between indexing and slicing?**
+Indexing (`s[i]`) retrieves a **single character** at position `i` and returns a string of length 1. Slicing (`s[start:stop]`) retrieves a **substring** (a range of characters) and returns a new string.
+
+**5. What happens if the stop index is larger than the string length?**
+Python does **not** raise an error — it simply slices up to the actual end of the string. E.g. `"Python"[0:100]` safely returns `"Python"`, unlike direct indexing (`"Python"[100]`), which raises an `IndexError`.
+

@@ -286,3 +286,51 @@ name[10]   # ❌ IndexError: string index out of range
 | Length | `len(s)` |
 | Nth character | `s[n-1]` (0-indexed) |
 | Nth from end | `s[-n]` |
+
+# Lesson 7 (Part 2): String Slicing — Cheat Sheet
+
+## Syntax
+
+```python
+string[start:stop:step]
+```
+
+**Rule:** `start` included, `stop` excluded.
+
+## Reference Table
+
+```
+Character : P  y  t  h  o  n
+Positive  : 0  1  2  3  4  5
+Negative  : -6 -5 -4 -3 -2 -1
+```
+
+| Slice | Result | Meaning |
+|---|---|---|
+| `word[0:2]` | `"Py"` | index 0 up to (not incl.) 2 |
+| `word[:4]` | `"Pyth"` | start omitted → from 0 |
+| `word[2:]` | `"thon"` | stop omitted → to the end |
+| `word[:]` | `"Python"` | full copy |
+| `word[-3:]` | `"hon"` | last 3 characters |
+| `word[:-2]` | `"Pyth"` | everything except last 2 |
+| `word[::2]` | `"Pto"` | every 2nd character |
+| `word[::-1]` | `"nohtyP"` | reversed |
+| `word[::-2]` | `"nhy"` | reversed, every 2nd char |
+
+## Quick Recipes
+
+```python
+s[0]           # first character (indexing)
+s[-1]           # last character
+s[:n]            # first n characters
+s[-n:]            # last n characters
+s[::-1]            # reverse the whole string
+```
+
+## Safety Note
+
+Out-of-range slice bounds do **not** raise an error (unlike indexing):
+```python
+"Python"[0:100]   # "Python" — no error, just stops at the actual end
+```
+

@@ -733,3 +733,113 @@ print("Last Character :", username[-1])
 - [ ] Build the Personal Information Analyzer
 - [ ] Build the Username Analyzer
 - [ ] Finish all 5 practice exercises
+
+# Lesson 7 (Part 2): String Slicing — Assignments
+
+## 🎯 Challenge: Predict Before Running
+
+```python
+word = "Python"
+
+# Q1
+print(word[1:4])
+
+# Q2
+print(word[:3])
+
+# Q3
+print(word[3:])
+
+# Q4
+print(word[::-1])
+
+# Q5
+print(word[::2])
+
+# Q6
+print(word[-4:-1])
+```
+
+### ✅ Answers
+
+```text
+Q1 → "yth"     (index 1 included, index 4 excluded → y, t, h)
+Q2 → "Pyt"     (same as word[0:3] → P, y, t)
+Q3 → "hon"     (from index 3 to the end → h, o, n)
+Q4 → "nohtyP"  (full reverse, step -1)
+Q5 → "Pto"     (every 2nd char: P, t, o)
+Q6 → "tho"     (word[-4:-1] → index -4 to -2 inclusive → t, h, o)
+```
+
+## 💻 Practice
+
+Practice slicing on your own name, city, and college name — try `[0:2]`, `[::-1]`, `[-3:]`, and `[::2]` on each and check the results against your predictions.
+
+### ✅ Example Solution
+
+```python
+name = "Alan Varghese"
+city = "Kottayam"
+college = "MG University"
+
+print(name[0:4])     # "Alan"
+print(name[::-1])      # reversed name
+print(city[-3:])        # last 3 characters of city
+print(college[::2])      # every 2nd character of college name
+```
+
+## 🛠 Mini Project 1 — Email Analyzer
+
+Ask for an email (e.g. `alan@gmail.com`), then print: First Character, Last Character, Username, Domain, Length.
+
+> `find()` hasn't been formally covered yet (that's in Part 3), but it's the natural tool here — `email.find("@")` returns the index of `@`, which slicing can then use to split the username from the domain.
+
+### ✅ Solution
+
+```python
+email = input("Enter email: ")
+
+at_index = email.find("@")
+
+username = email[:at_index]
+domain = email[at_index + 1:]
+
+print("First Character :", email[0])
+print("Last Character  :", email[-1])
+print("Username         :", username)
+print("Domain           :", domain)
+print("Length           :", len(email))
+```
+
+## 🛠 Mini Project 2 — Reverse Name
+
+Input `Alan`, output `nalA`.
+
+### ✅ Solution
+
+```python
+name = input("Enter your name: ")
+print(name[::-1])
+```
+
+## 🛠 Mini Project 3 — Initial Generator
+
+Input `Alan Varghese`, output `A.V.` — this is a preview; it becomes much easier once `split()` is covered in Part 3.
+
+### ✅ Solution (slicing-only approach)
+
+```python
+full_name = "Alan Varghese"
+
+first_initial = full_name[0]
+last_initial = full_name[full_name.find(" ") + 1]
+
+print(first_initial + "." + last_initial + ".")
+```
+
+## 🎯 Today's Assignment
+
+- [ ] Answer all 6 prediction questions (Q1–Q6) — aim for at least 5/6 correct
+- [ ] Complete the Reverse Name project
+- [ ] Practice slicing with your own name, city, and college name
+

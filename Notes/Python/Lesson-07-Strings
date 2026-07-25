@@ -110,3 +110,107 @@ IndexError: string index out of range
 ## 📚 New Concepts
 
 String · Character · Index · Positive Index · Negative Index · `len()`
+
+# Lesson 7 (Part 2): String Slicing — Notes
+
+**Estimated Time:** 4–5 hours
+**Difficulty:** ⭐⭐⭐☆☆
+
+## What is Slicing?
+
+**Slicing** means extracting a portion of a string — like cutting a few slices from a loaf of bread, instead of grabbing just one crumb (a single character via indexing).
+
+```python
+name = "Python"
+print(name[0])   # 'P' — indexing gives ONE character
+```
+
+Slicing lets you grab a **range** of characters at once.
+
+## Slice Syntax
+
+```python
+string[start : stop]
+```
+
+> **Golden rule: `start` is included, `stop` is excluded.**
+
+## Basic Examples
+
+```
+Character : P  y  t  h  o  n
+Index     : 0  1  2  3  4  5
+```
+
+```python
+word = "Python"
+
+print(word[0:2])   # "Py"   — index 0 included, index 2 excluded
+print(word[0:4])    # "Pyth"
+print(word[2:5])     # "tho"
+print(word[1:6])      # "ython"
+```
+
+## Omitting Start or Stop
+
+```python
+word[:4]     # same as word[0:4] → "Pyth"
+word[2:]      # same as word[2:6] (to the end) → "thon"
+word[:]        # entire string → "Python"
+```
+
+## Negative Slicing
+
+```
+Character : P  y  t  h  o  n
+Index     : -6 -5 -4 -3 -2 -1
+```
+
+```python
+word = "Python"
+
+print(word[-3:])   # "hon"
+print(word[:-2])    # "Pyth"
+```
+
+## The Step Parameter
+
+```python
+string[start:stop:step]
+```
+
+```python
+word = "Python"
+
+print(word[::2])   # "Pto"   — every 2nd character
+print(word[::3])    # "Ph"    — every 3rd character
+```
+
+## Reversing a String
+
+One of the most famous Python tricks:
+
+```python
+word = "Python"
+print(word[::-1])   # "nohtyP"
+```
+
+`start` defaults to the end, `stop` defaults to the beginning, and `step = -1` walks backwards.
+
+```python
+print(word[::-2])   # "nhy"  — every 2nd character, walking backwards
+```
+
+## Visual Trick
+
+Whenever slicing is confusing, draw the string out with its indices:
+
+```
+Python
+
+0 1 2 3 4 5
+P y t h o n
+```
+
+Then mark where `start` and `stop` point, remembering that `stop` is never included. This is a habit even professional developers use when debugging string logic.
+
