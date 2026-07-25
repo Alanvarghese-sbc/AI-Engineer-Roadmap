@@ -214,3 +214,130 @@ P y t h o n
 
 Then mark where `start` and `stop` point, remembering that `stop` is never included. This is a habit even professional developers use when debugging string logic.
 
+# Lesson 7 (Part 3): String Methods — Notes
+
+**Estimated Time:** 6–8 hours
+**Difficulty:** ⭐⭐⭐☆☆
+
+## What are String Methods?
+
+A **method** is a function that belongs to an object. Strings have many built-in methods that make text processing easy.
+
+```python
+string.method()
+```
+
+```python
+name = "alan"
+print(name.upper())   # ALAN
+```
+
+## The Methods
+
+### `upper()` — uppercase everything
+```python
+name = "Alan Varghese"
+print(name.upper())   # ALAN VARGHESE
+```
+Useful for: login systems, case-insensitive comparisons/searches.
+
+### `lower()` — lowercase everything
+```python
+email = "Alan@Gmail.COM"
+print(email.lower())   # alan@gmail.com
+```
+Useful for: email validation, searching, comparing usernames.
+
+### `title()` — capitalize the first letter of every word
+```python
+name = "alan varghese"
+print(name.title())   # Alan Varghese
+```
+
+### `capitalize()` — capitalize only the first character
+```python
+sentence = "python is awesome"
+print(sentence.capitalize())   # Python is awesome
+```
+
+### `strip()` — remove leading/trailing spaces
+```python
+name = "   Alan   "
+print(name.strip())   # "Alan"
+```
+Extremely useful when cleaning user input.
+
+### `lstrip()` / `rstrip()` — strip from one side only
+```python
+"    Hello".lstrip()    # "Hello"
+"Hello     ".rstrip()     # "Hello"
+```
+
+### `replace()` — replace one piece of text with another
+```python
+text = "I love Java"
+print(text.replace("Java", "Python"))   # I love Python
+
+phone = "987-654-3210"
+print(phone.replace("-", ""))            # 9876543210
+```
+
+### `find()` — locate the first occurrence of a substring
+```python
+text = "Python Programming"
+print(text.find("Program"))   # 7
+
+print(text.find("Java"))       # -1  (means "not found")
+```
+
+### `count()` — count occurrences
+```python
+text = "banana"
+print(text.count("a"))    # 3
+print(text.count("na"))     # 2
+```
+
+### `startswith()` / `endswith()`
+```python
+filename = "resume.pdf"
+print(filename.startswith("res"))   # True
+print(filename.endswith(".pdf"))     # True
+```
+Useful for checking file types, URL prefixes, etc.
+
+### `split()` — split a string into a list
+```python
+text = "Python Java C++"
+print(text.split())   # ['Python', 'Java', 'C++']
+
+fruits = "Apple,Mango,Banana"
+print(fruits.split(","))   # ['Apple', 'Mango', 'Banana']
+```
+
+### `join()` — join a list of strings into one string
+```python
+words = ["I", "Love", "Python"]
+print(" ".join(words))   # "I Love Python"
+```
+
+## Summary Table
+
+| Method | Purpose | Example Output |
+|---|---|---|
+| `upper()` | Uppercase | `ALAN` |
+| `lower()` | Lowercase | `alan` |
+| `title()` | Every word capitalized | `Alan Varghese` |
+| `capitalize()` | First letter capitalized | `Python` |
+| `strip()` | Remove surrounding spaces | `Alan` |
+| `replace()` | Replace text | `I love Python` |
+| `find()` | Find position | `7` |
+| `count()` | Count occurrences | `3` |
+| `startswith()` | Check beginning | `True` |
+| `endswith()` | Check ending | `True` |
+| `split()` | Split into list | `['a', 'b']` |
+| `join()` | Join strings | `"a b"` |
+
+## Why This Matters for AI Work
+
+These methods come up constantly in prompt engineering (cleaning user input), LangChain prompt processing, RAG document splitting/cleaning, chatbot text normalization, NLP tokenization, and FastAPI input validation.
+

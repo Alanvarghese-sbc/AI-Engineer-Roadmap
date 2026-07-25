@@ -334,3 +334,69 @@ Out-of-range slice bounds do **not** raise an error (unlike indexing):
 "Python"[0:100]   # "Python" — no error, just stops at the actual end
 ```
 
+# Lesson 7 (Part 3): String Methods — Cheat Sheet
+
+## Case Conversion
+
+```python
+"alan".upper()          # "ALAN"
+"ALAN".lower()            # "alan"
+"alan varghese".title()    # "Alan Varghese"
+"python is fun".capitalize()  # "Python is fun"
+```
+
+## Whitespace Cleanup
+
+```python
+"  Alan  ".strip()     # "Alan"    — both ends
+"  Alan  ".lstrip()      # "Alan  " — left only
+"  Alan  ".rstrip()        # "  Alan" — right only
+```
+
+## Search & Replace
+
+```python
+"I love Java".replace("Java", "Python")   # "I love Python"
+"Python Programming".find("Program")        # 7   (index, or -1 if not found)
+"banana".count("a")                            # 3
+```
+
+## Prefix / Suffix Checks
+
+```python
+"resume.pdf".startswith("res")   # True
+"resume.pdf".endswith(".pdf")      # True
+```
+
+## Split & Join
+
+```python
+"Python Java C++".split()            # ['Python', 'Java', 'C++']
+"Apple,Mango,Banana".split(",")        # ['Apple', 'Mango', 'Banana']
+" ".join(["I", "Love", "Python"])        # "I Love Python"
+```
+
+## Quick Reference Table
+
+| Method | Purpose | Example → Result |
+|---|---|---|
+| `.upper()` | ALL CAPS | `"a"` → `"A"` |
+| `.lower()` | all lowercase | `"A"` → `"a"` |
+| `.title()` | Cap Every Word | `"a b"` → `"A B"` |
+| `.capitalize()` | Cap first only | `"ab"` → `"Ab"` |
+| `.strip()` | trim both ends | `" a "` → `"a"` |
+| `.replace(a,b)` | swap text | see above |
+| `.find(x)` | index or `-1` | see above |
+| `.count(x)` | occurrences | see above |
+| `.startswith(x)` | bool | see above |
+| `.endswith(x)` | bool | see above |
+| `.split(sep)` | str → list | see above |
+| `sep.join(list)` | list → str | see above |
+
+## Chaining Methods
+
+Methods can be chained since each returns a new string:
+
+```python
+"   alan   ".strip().title()   # "Alan"
+```

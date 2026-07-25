@@ -843,3 +843,148 @@ print(first_initial + "." + last_initial + ".")
 - [ ] Complete the Reverse Name project
 - [ ] Practice slicing with your own name, city, and college name
 
+# Lesson 7 (Part 3): String Methods — Assignments
+
+## 🧠 Predict Before Running
+
+```python
+# Q1
+name = "alan"
+print(name.upper())
+
+# Q2
+text = "  Python  "
+print(text.strip())
+
+# Q3
+word = "banana"
+print(word.count("a"))
+
+# Q4
+email = "alan@gmail.com"
+print(email.find("@"))
+
+# Q5
+filename = "resume.pdf"
+print(filename.endswith(".pdf"))
+
+# Q6
+text2 = "Python Java AI"
+print(text2.split())
+```
+
+### ✅ Answers
+
+```text
+Q1 → "ALAN"
+Q2 → "Python"                          (spaces stripped)
+Q3 → 3                                  ("banana" has 3 'a's)
+Q4 → 4                                   (@ is at index 4: a-l-a-n-@)
+Q5 → True
+Q6 → ['Python', 'Java', 'AI']
+```
+
+## 🧠 Final Challenge
+
+```python
+# Q1
+text = "   AI Engineer   "
+print(text.strip().upper())
+
+# Q2
+email = "Alan.Varghese@gmail.com"
+print(email.lower().find("@"))
+
+# Q3
+sentence = "I love Python"
+print(sentence.replace("Python", "AI"))
+```
+
+### ✅ Final Challenge Answers
+
+```text
+Q1 → "AI ENGINEER"        (strip removes spaces, then upper() applies)
+Q2 → 13                    (after lowercasing, @ sits at index 13)
+Q3 → "I love AI"
+```
+
+## 🛠 Mini Project 1 — Name Formatter
+
+Input: `   alan varghese`
+
+Output:
+```
+Original :    alan varghese
+Formatted: Alan Varghese
+Upper    : ALAN VARGHESE
+Lower    : alan varghese
+Length   : 14
+```
+
+### ✅ Solution
+
+```python
+name = input("Enter your name: ")
+
+print("Original :", name)
+print("Formatted:", name.strip().title())
+print("Upper    :", name.strip().upper())
+print("Lower    :", name.strip().lower())
+print("Length   :", len(name.strip()))
+```
+
+## 🛠 Mini Project 2 — Email Analyzer
+
+Input: `Alan.Varghese@gmail.com`
+
+Display: Original email, Lowercase email, Position of `@`, Username, Domain, Does it end with `.com`?
+
+### ✅ Solution
+
+```python
+email = input("Enter your email: ")
+lower_email = email.lower()
+
+at_position = lower_email.find("@")
+username = lower_email[:at_position]
+domain = lower_email[at_position + 1:]
+
+print("Original email :", email)
+print("Lowercase email:", lower_email)
+print("Position of @  :", at_position)
+print("Username       :", username)
+print("Domain         :", domain)
+print("Ends with .com :", lower_email.endswith(".com"))
+```
+
+## 🛠 Mini Project 3 — Password Checker
+
+Ask for a password. Display: Password length, whether it contains `"@"`, whether it contains a number, whether it starts with a capital letter.
+
+> Checking "does it contain a number" needs to look at every character, which is a preview of loops (covered properly soon) — used here the same way `find()` was introduced early in Part 2.
+
+### ✅ Solution
+
+```python
+password = input("Enter your password: ")
+
+has_number = False
+for char in password:
+    if char.isdigit():
+        has_number = True
+
+print("Password Length      :", len(password))
+print("Contains '@'         :", "@" in password)
+print("Contains a number    :", has_number)
+print("Starts with capital  :", password[:1].isupper())
+```
+
+## 🎯 Today's Assignment
+
+- [ ] Complete all 6 prediction questions
+- [ ] Complete the Final Challenge (Q1–Q3)
+- [ ] Build the Name Formatter project
+- [ ] Build the Email Analyzer project
+- [ ] Build the Password Checker project
+- [ ] Commit your work:
+

@@ -1,0 +1,6 @@
+name = input("Enter your Name : ")
+print(f"Orginal  :  {name}")
+print(f"Formatted:  {name.strip().title()}")
+print(f"Upper    :  {name.strip().upper}")
+print(f"Lower    :  {name.strip().lower}")
+print(f"Length   :  {len(name.strip())}")

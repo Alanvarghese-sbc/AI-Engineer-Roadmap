@@ -177,3 +177,30 @@ Indexing (`s[i]`) retrieves a **single character** at position `i` and returns a
 **5. What happens if the stop index is larger than the string length?**
 Python does **not** raise an error — it simply slices up to the actual end of the string. E.g. `"Python"[0:100]` safely returns `"Python"`, unlike direct indexing (`"Python"[100]`), which raises an `IndexError`.
 
+# Lesson 7 (Part 3): String Methods — Interview Questions & Answers
+
+> This lesson's source material didn't include a dedicated interview Q&A section, so these are drawn directly from its core concepts to keep the format consistent.
+
+**1. What is a string method, and how is it different from a regular function?**
+A method is a function that "belongs to" an object and is called using dot notation on that object, e.g. `name.upper()`, rather than being called standalone like `len(name)`. String methods operate specifically on the string they're called on.
+
+**2. What's the difference between `find()` and `count()`?**
+`find()` returns the **index of the first occurrence** of a substring (or `-1` if not found). `count()` returns **how many times** a substring appears in total.
+
+**3. What does `find()` return when the substring isn't present?**
+`-1`. This is a common way to check for absence — e.g. `if text.find("Java") == -1:` — though `in` (`"Java" in text`) is often more readable for a simple presence check.
+
+**4. What is the difference between `strip()`, `lstrip()`, and `rstrip()`?**
+`strip()` removes whitespace from **both** ends of a string. `lstrip()` removes it only from the **left/start**. `rstrip()` removes it only from the **right/end**.
+
+**5. What does `split()` return, and what's the default separator?**
+It returns a **list** of substrings. With no argument, it splits on any whitespace (spaces, tabs, newlines) and collapses multiple spaces automatically. You can also pass a specific separator, e.g. `"Apple,Mango".split(",")`.
+
+**6. How is `join()` different from `split()`?**
+`split()` breaks **one string into a list** of pieces. `join()` does the reverse — it combines a **list of strings into one string**, using the string it's called on as the separator: `" ".join(["I", "Love", "Python"])` → `"I Love Python"`.
+
+**7. What's the difference between `title()` and `capitalize()`?**
+`title()` capitalizes the first letter of **every word** in the string. `capitalize()` capitalizes only the **very first character** of the whole string and lowercases the rest.
+
+**8. Why are string methods especially important for AI/NLP work?**
+Real-world text data is messy — inconsistent casing, stray whitespace, mixed delimiters. Methods like `strip()`, `lower()`, `replace()`, and `split()` are the basic building blocks for cleaning and normalizing text before it's fed into prompts, embeddings, tokenizers, or RAG pipelines.
