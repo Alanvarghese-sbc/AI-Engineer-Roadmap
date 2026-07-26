@@ -221,3 +221,20 @@ For a simple variable on its own, they produce the **same output** — `f"{name}
 
 **5. What does `{value:.2f}` mean?**
 A formatting specifier used inside an f-string: `f` means format the number as a **fixed-point float**, and `.2` means round/display it with exactly **2 digits after the decimal point** — e.g. `f"{3.14159:.2f}"` → `"3.14"`.
+
+# Lesson 8 (Part 1): Conditional Statements (`if`) — Interview Questions & Answers
+
+**1. What is an `if` statement?**
+A control-flow structure that runs a block of code **only when** a given condition evaluates to `True`. It lets a program make decisions instead of always executing the same sequence of steps.
+
+**2. What happens when the condition is `False`?**
+The indented block under the `if` is simply **skipped** — the program continues on to whatever code comes after it (nothing inside the block executes).
+
+**3. Why is indentation important in Python?**
+Python uses indentation (not curly braces or keywords like `end`) to define which lines belong to a block, such as the body of an `if` statement. Inconsistent or missing indentation causes an `IndentationError` or changes which lines are considered part of the conditional.
+
+**4. What is the difference between `=` and `==`?**
+`=` is the **assignment** operator — it stores a value in a variable (`age = 18`). `==` is the **comparison** operator — it checks whether two values are equal and returns `True` or `False` (`age == 18`). Using `=` where `==` is needed inside an `if` condition is a syntax error in Python.
+
+**5. Why is the colon (`:`) required after an `if` statement?**
+It signals the end of the condition and the start of the indented block that belongs to that `if`. Python's syntax requires it — omitting it raises a `SyntaxError`.

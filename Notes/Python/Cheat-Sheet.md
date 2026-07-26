@@ -459,3 +459,56 @@ f"{name:^10}"     # center-aligned: "   Alan   "
 print(f"Name    : {name}")
 print(f"Average : {average:.2f}")
 ```
+
+# Lesson 8 (Part 1): Conditional Statements (`if`) — Cheat Sheet
+
+## Basic Syntax
+
+```python
+if condition:
+    # runs only if condition is True
+```
+
+## Comparison Operators
+
+| Op | Meaning |
+|---|---|
+| `==` | equal |
+| `!=` | not equal |
+| `>` | greater than |
+| `<` | less than |
+| `>=` | greater or equal |
+| `<=` | less or equal |
+
+## Common Patterns
+
+```python
+# With user input
+age = int(input("Enter age: "))
+if age >= 18:
+    print("Eligible")
+
+# With strings
+if password == "python123":
+    print("Login Successful")
+
+# With booleans directly (Pythonic)
+if logged_in:
+    print("Welcome!")
+# instead of: if logged_in == True:
+```
+
+## Rules to Remember
+
+- Requires a **colon** `:` at the end of the `if` line.
+- The block **must be indented** (4 spaces is convention).
+- `=` assigns, `==` compares — don't mix them up in a condition.
+- Code **outside** the indented block always runs, regardless of the condition.
+
+## Common Errors
+
+| Mistake | Fix |
+|---|---|
+| `if age = 18:` | `if age == 18:` |
+| `if age > 18` (no colon) | `if age > 18:` |
+| Inconsistent indentation | Use 4 spaces consistently |

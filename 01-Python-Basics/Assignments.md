@@ -1144,3 +1144,134 @@ print("==================================")
 - [ ] Build the Invoice Generator project
 - [ ] Build the Profile Card project
 - [ ] Commit your work:
+
+# Lesson 8 (Part 1): Conditional Statements (`if`) — Assignments
+
+## 🧠 Predict the Output
+
+```python
+# Q1
+age = 20
+if age >= 18:
+    print("Adult")
+
+# Q2
+marks = 40
+if marks >= 50:
+    print("Pass")
+
+# Q3
+x = 10
+if x == 10:
+    print("Correct")
+
+# Q4
+password = "python"
+if password == "Python":
+    print("Logged In")
+
+# Q5
+logged_in = True
+if logged_in:
+    print("Welcome")
+```
+
+### ✅ Answers
+
+```text
+Q1 → Adult                (20 >= 18 is True)
+Q2 → (nothing prints)      (40 >= 50 is False)
+Q3 → Correct                 (10 == 10 is True)
+Q4 → (nothing prints)          ("python" != "Python" — case-sensitive)
+Q5 → Welcome                      (logged_in is True)
+```
+
+## 🎯 Final Challenge
+
+```python
+# Q1
+age = 25
+if age > 20:
+    print("A")
+print("B")
+
+# Q2
+x = 5
+if x > 10:
+    print("Big")
+print("Done")
+
+# Q3
+name = "Alan"
+if name == "Alan":
+    print("Hello")
+print("Welcome")
+```
+
+### ✅ Final Challenge Answers
+
+```text
+Q1 →
+A
+B
+(the if condition is True, so "A" prints, then "B" always prints since it's outside the if block)
+
+Q2 →
+Done
+(the if condition is False, so "Big" is skipped, but "Done" always prints since it's outside the if block)
+
+Q3 →
+Hello
+Welcome
+(the if condition is True, so "Hello" prints, then "Welcome" always prints)
+```
+
+> Key insight: code **outside** the `if` block (not indented under it) always runs, regardless of whether the condition was True or False.
+
+## 🛠 Mini Project 1 — Voting Eligibility
+
+Ask for age; if 18 or above, print `You are eligible to vote.`
+
+### ✅ Solution
+
+```python
+age = int(input("Enter your age: "))
+
+if age >= 18:
+    print("You are eligible to vote.")
+```
+
+## 🛠 Mini Project 2 — Password Checker
+
+Ask for a password; correct password is `AI123`. If correct, print `Access Granted`.
+
+### ✅ Solution
+
+```python
+password = input("Enter password: ")
+
+if password == "AI123":
+    print("Access Granted")
+```
+
+## 🛠 Mini Project 3 — Number Checker
+
+Ask for a number; if greater than 100, print `Large Number`.
+
+### ✅ Solution
+
+```python
+number = int(input("Enter a number: "))
+
+if number > 100:
+    print("Large Number")
+```
+
+## 🎯 Today's Assignment
+
+- [ ] Complete all 5 prediction questions
+- [ ] Complete the Final Challenge (Q1–Q3)
+- [ ] Build the Voting Eligibility project
+- [ ] Build the Password Checker project
+- [ ] Build the Number Checker project
+- [ ] Commit your work:
