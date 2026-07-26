@@ -341,3 +341,140 @@ print(" ".join(words))   # "I Love Python"
 
 These methods come up constantly in prompt engineering (cleaning user input), LangChain prompt processing, RAG document splitting/cleaning, chatbot text normalization, NLP tokenization, and FastAPI input validation.
 
+# Lesson 7 (Part 4): Escape Characters & Advanced String Formatting — Notes
+
+**Estimated Time:** 3–4 hours
+**Difficulty:** ⭐⭐☆☆☆
+
+## 🎯 Learning Objectives
+
+- Escape characters
+- New lines, tabs
+- Quotes inside strings
+- Backslashes
+- Advanced f-strings
+- String formatting (decimal places, alignment)
+
+## What are Escape Characters?
+
+An escape character starts with `\` and tells Python "the next character has a special meaning" instead of being printed literally.
+
+## `\n` — New Line
+
+```python
+print("Hello\nWorld")
+```
+```
+Hello
+World
+```
+
+```python
+print("Name : Alan\nAge : 23")
+```
+```
+Name : Alan
+Age : 23
+```
+
+## `\t` — Tab Space
+
+```python
+print("Name\tAlan")
+print("Age\t23")
+```
+```
+Name    Alan
+Age     23
+```
+Useful for aligning simple table-like output.
+
+## `\"` — Escaped Double Quote
+
+```python
+print("Python is "Awesome"")   # ❌ Error — Python thinks the string ends early
+print("Python is \"Awesome\"")  # ✅
+```
+```
+Python is "Awesome"
+```
+
+## `\'` — Escaped Single Quote
+
+```python
+print('It\'s a beautiful day')
+```
+```
+It's a beautiful day
+```
+
+## `\\` — Escaped Backslash
+
+```python
+print("C:\Users\Alan")     # ❌ Python reads \U as the start of a unicode escape
+print("C:\\Users\\Alan")    # ✅
+```
+```
+C:\Users\Alan
+```
+
+### Raw Strings — an Alternative
+
+```python
+print(r"C:\Users\Alan")
+```
+```
+C:\Users\Alan
+```
+
+The `r` prefix tells Python to treat backslashes literally — no escape processing at all. Common for file paths and regex patterns.
+
+## Advanced f-Strings
+
+Basic usage:
+```python
+name = "Alan"
+print(f"Hello {name}")
+```
+
+**Multiple variables:**
+```python
+name = "Alan"
+age = 23
+city = "Kottayam"
+
+print(f"My name is {name}. I am {age} years old and I live in {city}.")
+```
+
+**Expressions inside f-strings:**
+```python
+a = 10
+b = 20
+print(f"Sum = {a+b}")   # Sum = 30
+```
+
+**Method calls inside f-strings:**
+```python
+name = "alan"
+print(f"{name.upper()}")   # ALAN
+```
+
+**Formatting numbers — decimal places:**
+```python
+pi = 3.14159265
+print(f"{pi:.2f}")   # 3.14
+```
+`.2f` means "2 digits after the decimal point."
+
+**Alignment:**
+```python
+name = "Alan"
+
+print(f"{name:>10}")   # right aligned  → "      Alan"
+print(f"{name:<10}")    # left aligned   → "Alan      "
+print(f"{name:^10}")     # center aligned → "   Alan   "
+```
+
+## 🏆 Wrap-Up
+
+Escape characters and f-strings round out the core Strings module — a foundation used constantly in prompt engineering, document processing, search systems, RAG pipelines, chatbots, FastAPI backends, and data cleaning.

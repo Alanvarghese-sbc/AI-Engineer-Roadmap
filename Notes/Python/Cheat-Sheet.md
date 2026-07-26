@@ -400,3 +400,62 @@ Methods can be chained since each returns a new string:
 ```python
 "   alan   ".strip().title()   # "Alan"
 ```
+
+# Lesson 7 (Part 4): Escape Characters & Formatting — Cheat Sheet
+
+## Escape Characters
+
+| Escape | Meaning | Example → Output |
+|---|---|---|
+| `\n` | New line | `"A\nB"` → `A` / `B` |
+| `\t` | Tab | `"A\tB"` → `A    B` |
+| `\"` | Literal double quote | `"say \"hi\""` → `say "hi"` |
+| `\'` | Literal single quote | `'It\'s'` → `It's` |
+| `\\` | Literal backslash | `"C:\\Users"` → `C:\Users` |
+
+## Raw Strings — Skip Escaping Entirely
+
+```python
+print(r"C:\Users\Alan")   # C:\Users\Alan
+```
+Handy for file paths and regex patterns.
+
+## f-String Basics
+
+```python
+name = "Alan"
+print(f"Hello {name}")
+```
+
+## f-Strings with Expressions & Methods
+
+```python
+a, b = 10, 20
+print(f"Sum = {a+b}")             # Sum = 30
+
+name = "alan"
+print(f"{name.upper()}")           # ALAN
+```
+
+## Number Formatting
+
+```python
+pi = 3.14159265
+f"{pi:.2f}"   # "3.14"  — 2 decimal places
+f"{pi:.0f}"    # "3"     — no decimals
+```
+
+## Alignment (width = 10 in these examples)
+
+```python
+f"{name:<10}"   # left-aligned:   "Alan      "
+f"{name:>10}"    # right-aligned:  "      Alan"
+f"{name:^10}"     # center-aligned: "   Alan   "
+```
+
+## Quick Recipe: Report-Style Output
+
+```python
+print(f"Name    : {name}")
+print(f"Average : {average:.2f}")
+```

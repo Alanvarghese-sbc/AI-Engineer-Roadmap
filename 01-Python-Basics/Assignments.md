@@ -988,3 +988,159 @@ print("Starts with capital  :", password[:1].isupper())
 - [ ] Build the Password Checker project
 - [ ] Commit your work:
 
+# Lesson 7 (Part 4): Escape Characters & Formatting — Assignments
+
+## 🧠 Predict the Output
+
+```python
+# Q1
+print("Hello\nPython")
+
+# Q2
+print("A\tB\tC")
+
+# Q3
+print("Python is \"Easy\"")
+
+# Q4
+pi = 3.14159
+print(f"{pi:.3f}")
+
+# Q5
+name = "Alan"
+print(f"{name.upper()}")
+
+# Q6
+a = 10
+b = 20
+print(f"{a} + {b} = {a+b}")
+```
+
+### ✅ Answers
+
+```text
+Q1 →
+Hello
+Python
+
+Q2 → A    B    C        (tab-separated)
+Q3 → Python is "Easy"
+Q4 → 3.142                (rounded to 3 decimal places)
+Q5 → ALAN
+Q6 → 10 + 20 = 30
+```
+
+## 🎯 Final Challenge
+
+```python
+# Q1
+print("AI\nML\nPython")
+
+# Q2
+language = "python"
+print(f"{language.title()}")
+
+# Q3
+score = 98.4567
+print(f"{score:.1f}")
+```
+
+### ✅ Final Challenge Answers
+
+```text
+Q1 →
+AI
+ML
+Python
+
+Q2 → Python
+Q3 → 98.5   (rounded to 1 decimal place)
+```
+
+## 🛠 Mini Project 1 — Student Report Card
+
+Ask for Name, Age, Python Marks, AI Marks. Display total and average (2 decimal places).
+
+### ✅ Solution
+
+```python
+name = input("Enter your name: ")
+age = int(input("Enter your age: "))
+python_marks = int(input("Enter Python marks: "))
+ai_marks = int(input("Enter AI marks: "))
+
+total = python_marks + ai_marks
+average = total / 2
+
+print("==========================")
+print("      REPORT CARD")
+print("==========================")
+print()
+print(f"Name      : {name}")
+print(f"Age       : {age}")
+print(f"Python    : {python_marks}")
+print(f"AI        : {ai_marks}")
+print()
+print(f"Total     : {total}")
+print(f"Average   : {average:.2f}")
+```
+
+## 🛠 Mini Project 2 — Invoice Generator
+
+Input: Customer Name, Product, Price, Quantity. Display line items and total.
+
+### ✅ Solution
+
+```python
+customer = input("Enter customer name: ")
+product = input("Enter product name: ")
+price = float(input("Enter price: "))
+quantity = int(input("Enter quantity: "))
+
+total = price * quantity
+
+print("==========================")
+print("INVOICE")
+print("==========================")
+print()
+print(f"Customer : {customer}")
+print(f"Product  : {product}")
+print(f"Price    : ${price:.0f}")
+print(f"Quantity : {quantity}")
+print()
+print(f"Total    : ${total:.0f}")
+```
+
+## 🛠 Mini Project 3 — Profile Card
+
+Static output using `\n`, `\"`, and f-strings.
+
+### ✅ Solution
+
+```python
+name = "Alan Varghese"
+role = "AI Engineer"
+country = "India"
+skills = "Python, AI, ML"
+quote = "Never stop learning."
+
+print("==================================")
+print("        AI ENGINEER PROFILE")
+print("==================================\n")
+print(f"Name        : {name}")
+print(f"Role        : {role}")
+print(f"Country     : {country}")
+print(f"Skills      : {skills}\n")
+print("Quote:")
+print(f"\"{quote}\"\n")
+print("==================================")
+```
+
+## 🎯 Today's Assignment
+
+- [ ] Complete all 6 prediction questions
+- [ ] Complete the Final Challenge (Q1–Q3)
+- [ ] Build the Student Report Card project
+- [ ] Build the Invoice Generator project
+- [ ] Build the Profile Card project
+- [ ] Commit your work:

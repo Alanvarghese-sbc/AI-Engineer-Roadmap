@@ -204,3 +204,20 @@ It returns a **list** of substrings. With no argument, it splits on any whitespa
 
 **8. Why are string methods especially important for AI/NLP work?**
 Real-world text data is messy — inconsistent casing, stray whitespace, mixed delimiters. Methods like `strip()`, `lower()`, `replace()`, and `split()` are the basic building blocks for cleaning and normalizing text before it's fed into prompts, embeddings, tokenizers, or RAG pipelines.
+
+# Lesson 7 (Part 4): Escape Characters & Formatting — Interview Questions & Answers
+
+**1. What does `\n` do?**
+Inserts a **new line** — everything after it prints on the next line, e.g. `print("Hello\nWorld")` prints `Hello` and `World` on separate lines.
+
+**2. What does `\t` do?**
+Inserts a **tab space**, useful for roughly aligning simple text output into columns.
+
+**3. Why do we use `\\`?**
+To print a **literal backslash** character. Since `\` normally starts an escape sequence, writing just one backslash (e.g. in a Windows file path like `"C:\Users\Alan"`) can be misread as an escape code (like `\U`). `\\` tells Python "this is an actual backslash character, not the start of an escape sequence." Raw strings (`r"..."`) are a common alternative that avoid this entirely.
+
+**4. Difference between `print(name)` and `print(f"{name}")`?**
+For a simple variable on its own, they produce the **same output** — `f"{name}"` just evaluates to the string value of `name`. The real value of f-strings shows up when combining variables with other text or expressions in one string, e.g. `f"Hello {name}, you are {age} years old"`, which is far cleaner than string concatenation.
+
+**5. What does `{value:.2f}` mean?**
+A formatting specifier used inside an f-string: `f` means format the number as a **fixed-point float**, and `.2` means round/display it with exactly **2 digits after the decimal point** — e.g. `f"{3.14159:.2f}"` → `"3.14"`.
