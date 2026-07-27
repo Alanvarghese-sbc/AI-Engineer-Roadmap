@@ -713,3 +713,74 @@ if logged_in and is_admin:
 
 - **Over-nesting** (3+ levels deep) hurts readability — look for ways to flatten with logical operators.
 - Indentation must be **consistent** at each nesting level, or Python raises `IndentationError` or misattributes a block.
+
+# Lesson 8 (Part 5): Logical Operators — Cheat Sheet
+
+## The Three Operators
+
+| Operator | Rule | Analogy |
+|---|---|---|
+| `and` | BOTH must be True | needs Key 1 AND Key 2 |
+| `or` | AT LEAST ONE must be True | Employee Card OR Visitor Pass |
+| `not` | flips True ↔ False | "NOT logged in" |
+
+## Truth Tables
+
+**`and`**
+
+| A | B | Result |
+|---|---|---|
+| T | T | T |
+| T | F | F |
+| F | T | F |
+| F | F | F |
+
+**`or`**
+
+| A | B | Result |
+|---|---|---|
+| T | T | T |
+| T | F | T |
+| F | T | T |
+| F | F | F |
+
+## Precedence (high → low)
+
+```
+not  →  and  →  or
+```
+Use parentheses to make intent explicit when combining all three.
+
+## Common Patterns
+
+```python
+# Both conditions required
+if age >= 18 and citizen:
+    ...
+
+# Either condition is enough
+if day == "Saturday" or day == "Sunday":
+    ...
+
+# Negation
+if not logged_in:
+    ...
+```
+
+## Gotchas
+
+```python
+# ❌ Doesn't check two usernames — always True!
+if username == "admin" or "Alan":
+
+# ✅ Correct — each comparison must be spelled out
+if username == "admin" or username == "Alan":
+```
+
+```python
+# ⚠️ Using 'or' where 'and' was probably meant
+if age >= 18 or citizen:   # True even if age=10, as long as citizen is True
+
+# Probably meant:
+if age >= 18 and citizen:
+```

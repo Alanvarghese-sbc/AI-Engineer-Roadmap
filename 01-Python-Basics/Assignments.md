@@ -1734,3 +1734,162 @@ else:
 - [ ] Build the Movie Ticket Booking system
 - [ ] Build the College Admission Checker
 - [ ] Commit your work:
+
+# Lesson 8 (Part 5): Logical Operators — Assignments
+
+## 🧠 Predict the Output
+
+```python
+# Q1
+age = 20
+citizen = True
+if age >= 18 and citizen:
+    print("Eligible")
+
+# Q2
+day = "Sunday"
+if day == "Saturday" or day == "Sunday":
+    print("Holiday")
+
+# Q3
+logged_in = False
+if not logged_in:
+    print("Login First")
+
+# Q4
+marks = 80
+sports = False
+if marks >= 90 or sports:
+    print("Scholarship")
+else:
+    print("No Scholarship")
+
+# Q5
+username = "Alan"
+password = "123"
+if username == "Alan" and password == "123":
+    print("Welcome")
+else:
+    print("Denied")
+```
+
+### ✅ Answers
+
+```text
+Q1 → Eligible          (both age>=18 and citizen are True)
+Q2 → Holiday             (day == "Sunday" is True, so 'or' is satisfied)
+Q3 → Login First           (logged_in is False, so 'not logged_in' is True)
+Q4 → No Scholarship          (80 >= 90 is False, and sports is False, so 'or' fails)
+Q5 → Welcome                   (both username and password match exactly)
+```
+
+## 🛠 Mini Project 1 — Login System
+
+Correct username `admin`, password `python123`, checked with `and`.
+
+### ✅ Solution
+
+```python
+username = input("Username: ")
+password = input("Password: ")
+
+if username == "admin" and password == "python123":
+    print("Login Successful")
+else:
+    print("Invalid Credentials")
+```
+
+## 🛠 Mini Project 2 — Driving License Checker
+
+Eligible if age ≥ 18 **and** has a medical certificate.
+
+### ✅ Solution
+
+```python
+age = int(input("Enter your age: "))
+medical = input("Do you have a medical certificate? (yes/no): ")
+
+if age >= 18 and medical == "yes":
+    print("Eligible for License")
+else:
+    print("Not Eligible")
+```
+
+## 🛠 Mini Project 3 — Scholarship System
+
+Scholarship if marks ≥ 90 **or** sports quota is yes.
+
+### ✅ Solution
+
+```python
+marks = int(input("Enter your marks: "))
+sports_quota = input("Are you under sports quota? (yes/no): ")
+
+if marks >= 90 or sports_quota == "yes":
+    print("Scholarship Granted")
+else:
+    print("Scholarship Not Granted")
+```
+
+## 🛠 Mini Project 4 — Website Access Checker
+
+If not logged in, print `Please Login`.
+
+### ✅ Solution
+
+```python
+logged_in = False
+
+if not logged_in:
+    print("Please Login")
+else:
+    print("Welcome back!")
+```
+
+## ⭐ Portfolio Project — Smart ATM System (Preview)
+
+A fuller version with multiple transactions and loops comes after Loops is covered. For now, here's a single-transaction version using logical operators to prevent overdraft:
+
+```python
+balance = 10000
+pin = int(input("Enter PIN: "))
+
+if pin == 1234:
+    print("1. Check Balance")
+    print("2. Withdraw")
+    print("3. Deposit")
+    choice = input("Choose an option: ")
+
+    if choice == "1":
+        print("Balance:", balance)
+
+    elif choice == "2":
+        amount = int(input("Enter amount to withdraw: "))
+        if amount > 0 and amount <= balance:
+            balance -= amount
+            print("Withdrawal successful. New balance:", balance)
+        else:
+            print("Invalid amount or insufficient balance")
+
+    elif choice == "3":
+        amount = int(input("Enter amount to deposit: "))
+        if amount > 0:
+            balance += amount
+            print("Deposit successful. New balance:", balance)
+        else:
+            print("Invalid deposit amount")
+
+    else:
+        print("Invalid option")
+
+else:
+    print("Incorrect PIN")
+```
+
+## 🎯 Today's Assignment
+
+- [ ] Complete all 5 prediction questions
+- [ ] Build the Login System
+- [ ] Build the Scholarship System
+- [ ] Build the Driving License Checker
+- [ ] Build the Website Access Checker

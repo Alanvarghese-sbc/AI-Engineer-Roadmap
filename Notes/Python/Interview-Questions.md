@@ -291,3 +291,22 @@ replaces a two-level nested `if`, producing flatter, more readable code.
 
 **5. Give a real-world example of nested `if`.**
 An ATM: first check if the PIN is correct; only if it is, ask for and check the withdrawal amount against the balance. Each step only happens if the previous check passed — a natural fit for nested conditionals.
+
+# Lesson 8 (Part 5): Logical Operators — Interview Questions & Answers
+
+**1. What is the difference between `and` and `or`?**
+`and` requires **both** conditions to be `True` for the overall expression to be `True`. `or` only requires **at least one** of the conditions to be `True`.
+
+**2. What does `not` do?**
+It reverses a Boolean value: `not True` → `False`, and `not False` → `True`. It's used to negate a condition, e.g. `if not logged_in:` means "if the user is NOT logged in."
+
+**3. Which operator has the highest precedence?**
+`not` binds most tightly, followed by `and`, then `or` (lowest precedence). Python evaluates in that order: `not` → `and` → `or`.
+
+**4. Can `and` and `or` be combined?**
+Yes — they can be combined and mixed with `not` in a single expression, e.g. `True or False and False`. Because `and` has higher precedence than `or`, the `and` part is evaluated first. Parentheses can (and often should) be used to make the intended grouping explicit and avoid ambiguity.
+
+**5. Give a real-world example of each operator.**
+- `and`: a bank locker that needs **both** Key 1 and Key 2 to open.
+- `or`: a building entrance that accepts **either** an employee card **or** a visitor pass.
+- `not`: a website showing a "Please Login" message specifically when the user is **not** logged in.

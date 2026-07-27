@@ -573,3 +573,174 @@ if username == "admin" and password == "python123":
 
 Shorter, cleaner, and the style seen in professional Python code.
 
+# Lesson 8 (Part 5): Logical Operators (`and`, `or`, `not`) — Notes
+
+**Estimated Time:** 4–5 hours
+**Difficulty:** ⭐⭐⭐⭐☆
+
+## Why Do We Need Logical Operators?
+
+Sometimes one condition isn't enough — e.g. "a student can write the exam only if attendance ≥ 75% **and** fees are paid" has two conditions that both need checking. Logical operators combine conditions into a single expression.
+
+## The Three Logical Operators
+
+| Operator | Meaning |
+|---|---|
+| `and` | Both conditions must be True |
+| `or` | At least one condition must be True |
+| `not` | Reverses True ↔ False |
+
+## 1. `and` — Both Must Be True
+
+```python
+age = 20
+citizen = True
+
+if age >= 18 and citizen:
+    print("Eligible to Vote")
+```
+
+**Truth table:**
+
+| A | B | A and B |
+|---|---|---|
+| True | True | ✅ True |
+| True | False | ❌ False |
+| False | True | ❌ False |
+| False | False | ❌ False |
+
+Analogy: a bank locker needs **both** Key 1 AND Key 2 — missing either one means it stays locked.
+
+```python
+username = "admin"
+password = "python123"
+
+if username == "admin" and password == "python123":
+    print("Login Successful")
+```
+
+## 2. `or` — At Least One Must Be True
+
+```python
+day = "Sunday"
+
+if day == "Saturday" or day == "Sunday":
+    print("Weekend")
+```
+
+**Truth table:**
+
+| A | B | A or B |
+|---|---|---|
+| True | True | ✅ True |
+| True | False | ✅ True |
+| False | True | ✅ True |
+| False | False | ❌ False |
+
+Analogy: entering a building with **either** an Employee Card **or** a Visitor Pass — either one works.
+
+```python
+marks = 92
+
+if marks >= 90 or marks == 100:
+    print("Excellent")
+```
+
+## 3. `not` — Reverses a Boolean
+
+```python
+logged_in = False
+
+if not logged_in:
+    print("Please Login")
+```
+
+```python
+not True    # False
+not False    # True
+```
+
+## Combining Operators
+
+```python
+age = 22
+license = True
+if age >= 18 and license:
+    print("Can Drive")
+
+username = "Alan"
+role = "admin"
+if username == "Alan" or role == "admin":
+    print("Access Granted")
+
+logged_in = False
+if not logged_in:
+    print("Login First")
+```
+
+## Real-World Examples
+
+**Login system:**
+```python
+username = input("Username: ")
+password = input("Password: ")
+
+if username == "admin" and password == "python123":
+    print("Login Successful")
+else:
+    print("Invalid Credentials")
+```
+
+**College admission (with an OR path):**
+```python
+marks = 85
+sports_quota = False
+
+if marks >= 90 or sports_quota:
+    print("Admission Granted")
+else:
+    print("Admission Rejected")
+```
+
+**Driving license:**
+```python
+age = 20
+medical = True
+
+if age >= 18 and medical:
+    print("Eligible")
+```
+
+## Operator Precedence
+
+Python evaluates in this order: `not` → `and` → `or`.
+
+```python
+True or False and False
+```
+Evaluates `False and False` first → `False`, then `True or False` → **`True`**.
+
+## Common Mistakes
+
+**❌ Using `or` where `and` was intended**
+```python
+if age >= 18 or citizen:
+```
+If `citizen` is `True`, the whole condition is `True` **even if age is 10** — probably not what was intended.
+
+**✔ Better**
+```python
+if age >= 18 and citizen:
+```
+
+**❌ Trying to shortcut multiple comparisons**
+```python
+if username == "admin" or "Alan":
+```
+This does **not** check two usernames — `"Alan"` on its own is always truthy, so this condition is *always* `True`, regardless of `username`.
+
+**✔ Correct**
+```python
+if username == "admin" or username == "Alan":
+```
+Each comparison must be written out fully.
