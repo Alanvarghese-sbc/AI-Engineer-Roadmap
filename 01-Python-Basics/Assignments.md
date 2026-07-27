@@ -1427,3 +1427,161 @@ else:
 - [ ] Build the Even/Odd Checker
 - [ ] Build the Login System
 
+# Lesson 8 (Part 3): `if...elif...else` — Assignments
+
+## 🧠 Predict the Output
+
+```python
+# Q1
+marks = 95
+if marks >= 90:
+    print("A")
+elif marks >= 80:
+    print("B")
+else:
+    print("C")
+
+# Q2
+age = 15
+if age < 13:
+    print("Child")
+elif age < 18:
+    print("Teen")
+else:
+    print("Adult")
+
+# Q3
+number = 0
+if number > 0:
+    print("Positive")
+elif number < 0:
+    print("Negative")
+else:
+    print("Zero")
+
+# Q4
+day = 6
+if day == 1:
+    print("Monday")
+elif day == 6:
+    print("Saturday")
+elif day == 7:
+    print("Sunday")
+else:
+    print("Invalid")
+
+# Q5 ⭐
+marks2 = 85
+if marks2 >= 50:
+    print("Pass")
+elif marks2 >= 80:
+    print("Grade B")
+else:
+    print("Fail")
+```
+
+### ✅ Answers (with reasoning)
+
+```text
+Q1 → A          — 95 >= 90 is True, so it stops there immediately.
+Q2 → Teen        — 15 is not < 13, but it IS < 18, so the second branch fires.
+Q3 → Zero         — 0 is neither > 0 nor < 0, so it falls to the else branch.
+Q4 → Saturday      — day == 6 matches the second condition exactly.
+
+Q5 → Pass
+Explanation: marks2 >= 50 is checked FIRST and is True (85 >= 50), so Python
+prints "Pass" and stops immediately — it never even evaluates marks2 >= 80,
+even though 85 would also satisfy "Grade B". This is the classic condition-order
+bug: broader/lower-priority conditions must come AFTER more specific ones.
+```
+
+## 🛠 Mini Project 1 — Grade Calculator
+
+Rules: 90–100 → A, 80–89 → B, 70–79 → C, 60–69 → D, below 60 → F.
+
+### ✅ Solution
+
+```python
+marks = int(input("Enter Marks: "))
+
+if marks >= 90:
+    print("Grade A")
+elif marks >= 80:
+    print("Grade B")
+elif marks >= 70:
+    print("Grade C")
+elif marks >= 60:
+    print("Grade D")
+else:
+    print("Grade F")
+```
+
+## 🛠 Mini Project 2 — Simple Calculator
+
+Ask for two numbers and an operator (`+`, `-`, `*`, `/`), then compute the result using `if...elif...else`.
+
+### ✅ Solution
+
+```python
+num1 = float(input("Enter first number: "))
+operator = input("Enter operator (+, -, *, /): ")
+num2 = float(input("Enter second number: "))
+
+if operator == "+":
+    result = num1 + num2
+elif operator == "-":
+    result = num1 - num2
+elif operator == "*":
+    result = num1 * num2
+elif operator == "/":
+    result = num1 / num2
+else:
+    result = "Invalid operator"
+
+print("Result =", result)
+```
+
+## 🛠 Mini Project 3 — Month Finder
+
+Input a month number (1–12), print the month name.
+
+### ✅ Solution
+
+```python
+month = int(input("Enter Month Number: "))
+
+if month == 1:
+    print("January")
+elif month == 2:
+    print("February")
+elif month == 3:
+    print("March")
+elif month == 4:
+    print("April")
+elif month == 5:
+    print("May")
+elif month == 6:
+    print("June")
+elif month == 7:
+    print("July")
+elif month == 8:
+    print("August")
+elif month == 9:
+    print("September")
+elif month == 10:
+    print("October")
+elif month == 11:
+    print("November")
+elif month == 12:
+    print("December")
+else:
+    print("Invalid month number")
+```
+
+## 🎯 Today's Assignment
+
+- [ ] Complete all 5 prediction questions (with Q5's explanation)
+- [ ] Build the Grade Calculator
+- [ ] Build the Simple Calculator
+- [ ] Build the Month Finder
+- [ ] Commit your work:

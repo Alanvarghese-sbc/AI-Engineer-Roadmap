@@ -280,3 +280,148 @@ Missing indentation under `if` or `else` raises `IndentationError`.
 - **Missing colon:** `if age >= 18` → should be `if age >= 18:`
 - **Using `=` instead of `==`:** `if age = 18:` → should be `if age == 18:`
 - **Wrong indentation** — always indent the body of both `if` and `else` consistently.
+
+# Lesson 8 (Part 3): `if...elif...else` — Notes
+
+This lesson enables **multiple decisions**, not just a binary True/False choice.
+
+## Why Do We Need `elif`?
+
+Using separate `if` statements for a grading system causes a bug:
+
+```python
+marks = 82
+
+if marks >= 90:
+    print("Grade A")
+
+if marks >= 80:
+    print("Grade B")
+
+if marks >= 70:
+    print("Grade C")
+```
+```
+Grade B
+Grade C
+```
+
+❌ Wrong — a student should get exactly **one** grade, but every matching `if` runs independently.
+
+## Solution: `elif`
+
+```python
+marks = 82
+
+if marks >= 90:
+    print("Grade A")
+elif marks >= 80:
+    print("Grade B")
+elif marks >= 70:
+    print("Grade C")
+else:
+    print("Fail")
+```
+```
+Grade B
+```
+
+As soon as Python finds a `True` condition, it runs that block and **stops checking the rest** — the remaining `elif`/`else` are skipped entirely.
+
+## Syntax
+
+```python
+if condition1:
+    # code
+elif condition2:
+    # code
+elif condition3:
+    # code
+else:
+    # code
+```
+
+Think of it as asking questions in order, stopping at the first `Yes`:
+
+```
+Is marks >= 90? → Yes → Grade A ✅ Stop
+        │ No
+Is marks >= 80? → Yes → Grade B ✅ Stop
+        │ No
+Is marks >= 70? → Yes → Grade C ✅ Stop
+        │ No
+Else → Fail
+```
+
+## Examples
+
+**Traffic signal:**
+```python
+signal = input("Enter signal color: ")
+
+if signal == "red":
+    print("Stop")
+elif signal == "yellow":
+    print("Get Ready")
+elif signal == "green":
+    print("Go")
+else:
+    print("Invalid Signal")
+```
+
+**Age category:**
+```python
+age = 22
+
+if age < 13:
+    print("Child")
+elif age < 18:
+    print("Teenager")
+elif age < 60:
+    print("Adult")
+else:
+    print("Senior Citizen")
+```
+```
+Adult
+```
+
+**BMI category (simple):**
+```python
+bmi = 24
+
+if bmi < 18.5:
+    print("Underweight")
+elif bmi < 25:
+    print("Normal")
+elif bmi < 30:
+    print("Overweight")
+else:
+    print("Obese")
+```
+
+## Common Mistake: Wrong Condition Order
+
+```python
+marks = 95
+
+if marks >= 50:
+    print("Pass")
+elif marks >= 90:
+    print("Grade A")
+```
+```
+Pass
+```
+
+❌ `marks >= 50` is checked first and matches, so Python never even evaluates `marks >= 90` — even though 95 clearly deserves "Grade A" too.
+
+**Correct order:**
+```python
+if marks >= 90:
+    print("Grade A")
+elif marks >= 50:
+    print("Pass")
+```
+
+> 👉 **Always check the most specific / highest-priority conditions first.**

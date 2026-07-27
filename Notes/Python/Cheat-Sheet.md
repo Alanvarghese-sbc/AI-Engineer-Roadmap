@@ -574,3 +574,80 @@ else:
 | `if age >= 18` (no colon) | `if age >= 18:` |
 | `if age = 18:` | `if age == 18:` |
 | Inconsistent indentation between `if` and `else` bodies | Match indentation exactly |
+
+# Lesson 8 (Part 3): `if...elif...else` — Cheat Sheet
+
+## Syntax
+
+```python
+if condition1:
+    # code
+elif condition2:
+    # code
+elif condition3:
+    # code
+else:
+    # code
+```
+
+## Key Behavior
+
+- Python checks conditions **top to bottom**.
+- Stops at the **first `True`** — runs that block, skips everything else in the chain.
+- `else` is optional; can have any number of `elif`s.
+
+## Order Matters!
+
+```python
+# ❌ Wrong order — broader condition catches everything first
+if marks >= 50:
+    print("Pass")
+elif marks >= 90:
+    print("Grade A")   # never reached
+
+# ✅ Correct — most specific/highest condition first
+if marks >= 90:
+    print("Grade A")
+elif marks >= 50:
+    print("Pass")
+```
+
+## Common Patterns
+
+**Grading:**
+```python
+if marks >= 90:
+    grade = "A"
+elif marks >= 80:
+    grade = "B"
+elif marks >= 70:
+    grade = "C"
+else:
+    grade = "F"
+```
+
+**Range/category check:**
+```python
+if age < 13:
+    category = "Child"
+elif age < 18:
+    category = "Teenager"
+elif age < 60:
+    category = "Adult"
+else:
+    category = "Senior Citizen"
+```
+
+**Exact match chain:**
+```python
+if day == 1:
+    print("Monday")
+elif day == 6:
+    print("Saturday")
+else:
+    print("Invalid")
+```
+
+## Quick Reminder
+
+Every `if`/`elif`/`else` line ends with `:`, and every body must be indented.

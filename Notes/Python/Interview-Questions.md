@@ -254,3 +254,19 @@ Any number divisible evenly by 2 (an even number) has a remainder of `0` when di
 
 **5. What is the difference between `if` and `if...else`?**
 A plain `if` only defines what happens when the condition is `True` — if it's `False`, nothing runs and the program just moves on. `if...else` adds an explicit alternative path, so there's always a defined action regardless of whether the condition is `True` or `False`.
+# Lesson 8 (Part 3): `if...elif...else` — Interview Questions & Answers
+
+**1. What is the difference between `if` and `elif`?**
+A standalone `if` starts a new, independent condition check — even a second `if` right after another `if` gets evaluated on its own, so multiple `if` blocks can all run if their conditions are all `True`. `elif` ("else if") is chained to a preceding `if`: it's only checked if all earlier conditions in that chain were `False`, and once one branch in the chain matches, the rest are skipped.
+
+**2. Can we have multiple `elif` statements?**
+Yes — there's no limit. You can chain as many `elif` blocks as needed between the initial `if` and an optional final `else`.
+
+**3. Is `else` mandatory?**
+No. `if...elif` can stand alone without a final `else`. If none of the conditions match and there's no `else`, the program simply does nothing for that whole chain.
+
+**4. Does Python check all `elif` conditions?**
+No — Python evaluates them **in order** and stops at the first one that's `True`, executing that block only. Later `elif`/`else` conditions are never even evaluated once a match is found.
+
+**5. Why does the order of conditions matter?**
+Because Python stops at the first `True` match, a broader or lower-priority condition placed too early can "capture" cases that should have matched a later, more specific condition. For example, checking `marks >= 50` before `marks >= 90` means a mark of 95 gets classified as just "Pass" and never even reaches the "Grade A" check. The rule of thumb is to check the most specific/highest-priority conditions first.
