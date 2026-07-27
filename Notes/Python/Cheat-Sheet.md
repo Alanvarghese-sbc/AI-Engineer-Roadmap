@@ -512,3 +512,65 @@ if logged_in:
 | `if age = 18:` | `if age == 18:` |
 | `if age > 18` (no colon) | `if age > 18:` |
 | Inconsistent indentation | Use 4 spaces consistently |
+
+# Lesson 8 (Part 2): `if...else` — Cheat Sheet
+
+## Syntax
+
+```python
+if condition:
+    # runs if True
+else:
+    # runs if False
+```
+
+Exactly **one** branch runs — never both.
+
+## Even / Odd Pattern
+
+```python
+if number % 2 == 0:
+    print("Even")
+else:
+    print("Odd")
+```
+
+## Common Patterns
+
+```python
+# Eligibility check
+if age >= 18:
+    print("Eligible")
+else:
+    print("Not Eligible")
+
+# Password check
+if password == "AI123":
+    print("Access Granted")
+else:
+    print("Wrong Password")
+
+# Nested if (checking two things without 'and' yet)
+if username == "admin":
+    if password == "python123":
+        print("Login Successful")
+    else:
+        print("Invalid credentials")
+else:
+    print("Invalid credentials")
+```
+
+## Rules to Remember
+
+- Both `if` and `else` need a trailing colon `:`.
+- Both blocks must be indented consistently.
+- Code outside the `if`/`else` block always runs, regardless of which branch fired.
+- `>` is strict — `18 > 18` is `False`; use `>=` if you want to include equality.
+
+## Common Errors
+
+| Mistake | Fix |
+|---|---|
+| `if age >= 18` (no colon) | `if age >= 18:` |
+| `if age = 18:` | `if age == 18:` |
+| Inconsistent indentation between `if` and `else` bodies | Match indentation exactly |

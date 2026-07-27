@@ -1275,3 +1275,155 @@ if number > 100:
 - [ ] Build the Password Checker project
 - [ ] Build the Number Checker project
 - [ ] Commit your work:
+# Lesson 8 (Part 2): `if...else` — Assignments
+
+## 🧠 Predict the Output
+
+```python
+# Q1
+age = 16
+if age >= 18:
+    print("Adult")
+else:
+    print("Minor")
+
+# Q2
+number = 7
+if number % 2 == 0:
+    print("Even")
+else:
+    print("Odd")
+
+# Q3
+password = "AI123"
+if password == "AI123":
+    print("Correct")
+else:
+    print("Wrong")
+
+# Q4
+marks = 80
+if marks >= 50:
+    print("Pass")
+else:
+    print("Fail")
+
+# Q5
+x = -5
+if x >= 0:
+    print("Positive")
+else:
+    print("Negative")
+```
+
+### ✅ Answers (with reasons)
+
+```text
+Q1 → Minor      — 16 >= 18 is False, so the else branch runs.
+Q2 → Odd        — 7 % 2 = 1, not 0, so it's odd.
+Q3 → Correct    — the password matches exactly.
+Q4 → Pass       — 80 >= 50 is True.
+Q5 → Negative   — -5 >= 0 is False, so the else branch runs.
+```
+
+## 🎯 Final Challenge
+
+```python
+# Q6
+number = 10
+if number % 2 == 0:
+    print("Even")
+else:
+    print("Odd")
+print("Finished")
+
+# Q7
+age = 18
+if age > 18:
+    print("Adult")
+else:
+    print("Teen")
+
+# Q8
+name = "Alan"
+if name == "Alan":
+    print("Welcome")
+else:
+    print("Unknown User")
+print("Login Complete")
+```
+
+### ✅ Final Challenge Answers (with reasons)
+
+```text
+Q6 →
+Even
+Finished
+— 10 % 2 = 0, so "Even" prints; "Finished" always prints since it's outside the if/else block.
+
+Q7 → Teen
+— 18 > 18 is False (strictly greater than, not >=), so the else branch ("Teen") runs.
+
+Q8 →
+Welcome
+Login Complete
+— name == "Alan" is True, so "Welcome" prints; "Login Complete" always prints since it's outside the if/else block.
+```
+
+## 🛠 Mini Project 1 — Voting Eligibility
+
+Ask for age; print eligible/not eligible accordingly.
+
+### ✅ Solution
+
+```python
+age = int(input("Enter your age: "))
+
+if age >= 18:
+    print("You are eligible to vote.")
+else:
+    print("You are not eligible to vote.")
+```
+
+## 🛠 Mini Project 2 — Even/Odd Checker
+
+### ✅ Solution
+
+```python
+number = int(input("Enter a number: "))
+
+if number % 2 == 0:
+    print("Even Number")
+else:
+    print("Odd Number")
+```
+
+## 🛠 Mini Project 3 — Login System
+
+Correct credentials: username `admin`, password `python123`.
+
+> `and` isn't formally covered yet, so this uses a nested `if` to check both conditions — one check inside the other.
+
+### ✅ Solution
+
+```python
+username = input("Enter username: ")
+password = input("Enter password: ")
+
+if username == "admin":
+    if password == "python123":
+        print("Login Successful")
+    else:
+        print("Invalid Username or Password")
+else:
+    print("Invalid Username or Password")
+```
+
+## 🎯 Today's Assignment
+
+- [ ] Complete all 5 prediction questions
+- [ ] Complete the Final Challenge (Q6–Q8)
+- [ ] Build the Voting Eligibility project
+- [ ] Build the Even/Odd Checker
+- [ ] Build the Login System
+

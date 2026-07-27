@@ -238,3 +238,19 @@ Python uses indentation (not curly braces or keywords like `end`) to define whic
 
 **5. Why is the colon (`:`) required after an `if` statement?**
 It signals the end of the condition and the start of the indented block that belongs to that `if`. Python's syntax requires it — omitting it raises a `SyntaxError`.
+# Lesson 8 (Part 2): `if...else` — Interview Questions & Answers
+
+**1. What is the purpose of `else`?**
+It provides an alternative block of code to run when the `if` condition is `False`, so the program always produces a response instead of silently doing nothing.
+
+**2. Can both `if` and `else` execute together?**
+No. Exactly **one** of the two blocks executes for a given `if...else` — never both, and never neither.
+
+**3. What does `%` (modulus) do?**
+Returns the **remainder** of a division. For example, `10 % 2` is `0` because 10 divides evenly by 2, and `11 % 2` is `1` because 11 divided by 2 leaves a remainder of 1.
+
+**4. Why is `% 2 == 0` used to check even numbers?**
+Any number divisible evenly by 2 (an even number) has a remainder of `0` when divided by 2. If the remainder isn't `0` (i.e. it's `1`), the number is odd. This is the standard way to test even/odd in nearly every programming language.
+
+**5. What is the difference between `if` and `if...else`?**
+A plain `if` only defines what happens when the condition is `True` — if it's `False`, nothing runs and the program just moves on. `if...else` adds an explicit alternative path, so there's always a defined action regardless of whether the condition is `True` or `False`.

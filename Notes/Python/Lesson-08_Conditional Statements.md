@@ -150,3 +150,133 @@ if age > 18:
 
 **❌ Bad indentation** — always indent the code that belongs inside the `if`.
 
+# Lesson 8 (Part 2): `if...else` — Notes
+
+**Estimated Time:** 4–5 hours
+**Difficulty:** ⭐⭐⭐☆☆
+
+## 🎯 Learning Objectives
+
+- Understand `else`
+- Write `if...else` programs
+- Make decisions based on user input
+- Avoid common mistakes
+
+## Why Do We Need `else`?
+
+With only `if`, a false condition means the program says nothing at all:
+
+```python
+age = 15
+
+if age >= 18:
+    print("Eligible to Vote")
+# prints nothing if age < 18 — not very informative
+```
+
+Adding `else` gives the program a response for **both** outcomes:
+
+```python
+age = 15
+
+if age >= 18:
+    print("Eligible to Vote")
+else:
+    print("Not Eligible to Vote")
+```
+```
+Not Eligible to Vote
+```
+
+## Syntax
+
+```python
+if condition:
+    # runs if condition is True
+else:
+    # runs if condition is False
+```
+
+**Exactly one** of the two blocks runs — never both, never neither.
+
+## Flow
+
+```
+Condition
+    │
+ ┌──┴──┐
+True  False
+ │      │
+if    else
+```
+
+## Examples
+
+**Voting eligibility:**
+```python
+age = 22
+
+if age >= 18:
+    print("Eligible")
+else:
+    print("Not Eligible")
+```
+
+**Even or odd (using modulus):**
+```python
+number = 8
+
+if number % 2 == 0:
+    print("Even")
+else:
+    print("Odd")
+```
+`%` gives the remainder — `10 % 2 = 0`, `11 % 2 = 1`. A remainder of `0` when dividing by 2 means the number is even.
+
+**Password check:**
+```python
+password = input("Enter Password: ")
+
+if password == "AI123":
+    print("Access Granted")
+else:
+    print("Wrong Password")
+```
+
+**Pass or fail:**
+```python
+marks = int(input("Enter Marks: "))
+
+if marks >= 50:
+    print("Pass")
+else:
+    print("Fail")
+```
+
+**Positive or negative:**
+```python
+number = int(input("Enter Number: "))
+
+if number >= 0:
+    print("Positive")
+else:
+    print("Negative")
+```
+(Zero currently falls into "Positive" here — handled separately once `elif` is covered.)
+
+## Indentation
+
+```python
+if True:
+    print("Hello")
+else:
+    print("Bye")
+```
+
+Missing indentation under `if` or `else` raises `IndentationError`.
+
+## Common Mistakes
+
+- **Missing colon:** `if age >= 18` → should be `if age >= 18:`
+- **Using `=` instead of `==`:** `if age = 18:` → should be `if age == 18:`
+- **Wrong indentation** — always indent the body of both `if` and `else` consistently.
