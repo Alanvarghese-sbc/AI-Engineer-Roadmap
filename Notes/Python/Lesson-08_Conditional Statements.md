@@ -425,3 +425,151 @@ elif marks >= 50:
 ```
 
 > 👉 **Always check the most specific / highest-priority conditions first.**
+
+# Lesson 8 (Part 4): Nested `if` Statements — Notes
+
+**Estimated Time:** 3–4 hours
+**Difficulty:** ⭐⭐⭐⭐☆
+
+Used constantly in login systems, banking apps, e-commerce, admin dashboards, AI decision pipelines, and backend APIs.
+
+## 🎯 Learning Objectives
+
+- Understand nested `if`
+- Write multi-level decision logic
+- Validate user input step by step
+- Build authentication systems
+- Avoid deeply nested code when possible
+
+## What is a Nested `if`?
+
+An `if` statement placed **inside** another `if` statement. Like airport security: check the ticket first; only if that passes, check the ID; only if that passes, allow entry. Each decision depends on the previous one succeeding.
+
+## Basic Syntax
+
+```python
+if condition1:
+    # runs if condition1 is True
+
+    if condition2:
+        # runs only if BOTH condition1 and condition2 are True
+```
+
+The inner `if` is indented one level deeper than the outer `if`.
+
+## Example 1 — Login System
+
+```python
+username = input("Username: ")
+
+if username == "admin":
+    password = input("Password: ")
+
+    if password == "python123":
+        print("Login Successful")
+    else:
+        print("Wrong Password")
+
+else:
+    print("Invalid Username")
+```
+
+**Flow:**
+```
+Enter Username
+      │
+Username Correct?
+ ┌────┴────┐
+Yes        No
+ │          │
+Ask Password  Invalid Username
+ │
+Password Correct?
+ ┌────┴─────┐
+Yes         No
+ │          │
+Login     Wrong Password
+```
+
+## Example 2 — ATM Machine
+
+```python
+balance = 5000
+pin = int(input("Enter PIN: "))
+
+if pin == 1234:
+    amount = int(input("Enter withdrawal amount: "))
+
+    if amount <= balance:
+        print("Transaction Successful")
+    else:
+        print("Insufficient Balance")
+
+else:
+    print("Incorrect PIN")
+```
+
+## Example 3 — College Admission
+
+```python
+marks = int(input("Enter Marks: "))
+
+if marks >= 60:
+    age = int(input("Enter Age: "))
+
+    if age >= 17:
+        print("Admission Granted")
+    else:
+        print("Age Not Eligible")
+
+else:
+    print("Marks Too Low")
+```
+
+## Example 4 — File Access
+
+```python
+logged_in = True
+is_admin = False
+
+if logged_in:
+    if is_admin:
+        print("Access Granted")
+    else:
+        print("Admin Access Required")
+
+else:
+    print("Please Login")
+```
+
+## Common Mistake: Too Much Nesting
+
+```python
+if A:
+    if B:
+        if C:
+            if D:
+                print("Done")
+```
+
+This becomes hard to read and maintain. Logical operators (`and`, `or`), covered next, can flatten many nested `if` chains into a single condition.
+
+## When Should You Use Nested `if`?
+
+Use it when the second condition should only be checked **if the first is already true** — e.g. don't ask for a password if the username itself was already wrong.
+
+## Looking Ahead: Logical Operators Simplify This
+
+```python
+# Nested version
+if username == "admin":
+    if password == "python123":
+        print("Login Successful")
+
+# Flattened with 'and' (covered next lesson)
+if username == "admin" and password == "python123":
+    print("Login Successful")
+```
+
+Shorter, cleaner, and the style seen in professional Python code.
+

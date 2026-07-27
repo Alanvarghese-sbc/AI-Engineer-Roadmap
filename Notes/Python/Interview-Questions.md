@@ -270,3 +270,24 @@ No — Python evaluates them **in order** and stops at the first one that's `Tru
 
 **5. Why does the order of conditions matter?**
 Because Python stops at the first `True` match, a broader or lower-priority condition placed too early can "capture" cases that should have matched a later, more specific condition. For example, checking `marks >= 50` before `marks >= 90` means a mark of 95 gets classified as just "Pass" and never even reaches the "Grade A" check. The rule of thumb is to check the most specific/highest-priority conditions first.
+# Lesson 8 (Part 4): Nested `if` Statements — Interview Questions & Answers
+
+**1. What is a nested `if`?**
+An `if` statement placed inside the body of another `if` (or `elif`/`else`) statement, so the inner condition is only evaluated when the outer condition has already been satisfied.
+
+**2. When should you use nested `if`?**
+When a decision genuinely depends on a prior decision already being true — e.g. only check the password if the username was already correct, or only check withdrawal amount if the PIN was already correct. It models a step-by-step, dependent chain of checks.
+
+**3. What are the disadvantages of too much nesting?**
+Deeply nested `if` blocks become hard to read, hard to debug, and hard to maintain — each added level increases cognitive load and indentation, sometimes called "arrow code" or the "pyramid of doom." It also makes it easy to introduce logic bugs when conditions interact in unexpected ways.
+
+**4. How can logical operators reduce nesting?**
+Operators like `and` let multiple conditions be combined into a **single** `if` statement instead of stacking separate nested ones. For example:
+```python
+if username == "admin" and password == "python123":
+    print("Login Successful")
+```
+replaces a two-level nested `if`, producing flatter, more readable code.
+
+**5. Give a real-world example of nested `if`.**
+An ATM: first check if the PIN is correct; only if it is, ask for and check the withdrawal amount against the balance. Each step only happens if the previous check passed — a natural fit for nested conditionals.

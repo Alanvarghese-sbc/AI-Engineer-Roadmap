@@ -1584,4 +1584,153 @@ else:
 - [ ] Build the Grade Calculator
 - [ ] Build the Simple Calculator
 - [ ] Build the Month Finder
+# Lesson 8 (Part 4): Nested `if` Statements — Assignments
+
+## 🧠 Predict the Output
+
+```python
+# Q1
+username = "admin"
+if username == "admin":
+    password = "python123"
+    if password == "python123":
+        print("Login")
+
+# Q2
+age = 20
+if age >= 18:
+    if age >= 60:
+        print("Senior")
+    else:
+        print("Adult")
+
+# Q3
+balance = 1000
+withdraw = 1200
+if withdraw <= balance:
+    print("Success")
+else:
+    print("Insufficient Balance")
+
+# Q4
+logged_in = False
+if logged_in:
+    if True:
+        print("Dashboard")
+else:
+    print("Login Required")
+
+# Q5
+marks = 70
+if marks >= 50:
+    if marks >= 80:
+        print("Grade A")
+    else:
+        print("Pass")
+else:
+    print("Fail")
+```
+
+### ✅ Answers
+
+```text
+Q1 → Login                    (both conditions match)
+Q2 → Adult                     (20 >= 18 is True, but 20 >= 60 is False, so else fires)
+Q3 → Insufficient Balance        (1200 <= 1000 is False)
+Q4 → Login Required               (outer condition is False, so the inner if is never even reached)
+Q5 → Pass                          (70 >= 50 is True; 70 >= 80 is False, so the inner else fires)
+```
+
+## 🛠 Mini Project 1 — Login System
+
+Correct username `admin`, password `python123`.
+
+### ✅ Solution
+
+```python
+username = input("Username: ")
+
+if username == "admin":
+    password = input("Password: ")
+
+    if password == "python123":
+        print("Login Successful")
+    else:
+        print("Wrong Password")
+
+else:
+    print("Invalid Username")
+```
+
+## 🛠 Mini Project 2 — ATM Simulator
+
+Correct PIN `1234`, balance `10000`.
+
+### ✅ Solution
+
+```python
+balance = 10000
+pin = int(input("Enter PIN: "))
+
+if pin == 1234:
+    amount = int(input("Enter withdrawal amount: "))
+
+    if amount <= balance:
+        print("Transaction Successful")
+    else:
+        print("Insufficient Balance")
+
+else:
+    print("Incorrect PIN")
+```
+
+## 🛠 Mini Project 3 — Movie Ticket Booking
+
+Age must be at least 18. If so, ask whether they have an ID; if yes, allow booking; otherwise reject.
+
+### ✅ Solution
+
+```python
+age = int(input("Enter your age: "))
+
+if age >= 18:
+    has_id = input("Do you have a valid ID? (yes/no): ")
+
+    if has_id == "yes":
+        print("Booking Confirmed")
+    else:
+        print("ID Required for Booking")
+
+else:
+    print("You must be 18 or older to book a ticket")
+```
+
+## 🛠 Mini Project 4 — College Admission Checker
+
+Marks must be at least 60. If so, check age is at least 17.
+
+### ✅ Solution
+
+```python
+marks = int(input("Enter Marks: "))
+
+if marks >= 60:
+    age = int(input("Enter Age: "))
+
+    if age >= 17:
+        print("Admission Granted")
+    else:
+        print("Age Not Eligible")
+
+else:
+    print("Marks Too Low")
+```
+
+## 🎯 Today's Assignment
+
+- [ ] Complete all 5 prediction questions
+- [ ] Build the Login System
+- [ ] Build the ATM Simulator
+- [ ] Build the Movie Ticket Booking system
+- [ ] Build the College Admission Checker
 - [ ] Commit your work:

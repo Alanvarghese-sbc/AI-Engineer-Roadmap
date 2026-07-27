@@ -651,3 +651,65 @@ else:
 ## Quick Reminder
 
 Every `if`/`elif`/`else` line ends with `:`, and every body must be indented.
+
+# Lesson 8 (Part 4): Nested `if` Statements — Cheat Sheet
+
+## Syntax
+
+```python
+if condition1:
+    # runs if condition1 is True
+
+    if condition2:
+        # runs only if BOTH condition1 and condition2 are True
+    else:
+        # condition1 True, condition2 False
+
+else:
+    # condition1 is False — inner if is never even checked
+```
+
+## Common Pattern: Login-Style Check
+
+```python
+if username == "admin":
+    password = input("Password: ")
+    if password == "python123":
+        print("Login Successful")
+    else:
+        print("Wrong Password")
+else:
+    print("Invalid Username")
+```
+
+## Common Pattern: Amount/Balance Check
+
+```python
+if pin == 1234:
+    if amount <= balance:
+        print("Transaction Successful")
+    else:
+        print("Insufficient Balance")
+else:
+    print("Incorrect PIN")
+```
+
+## Rule of Thumb
+
+Use nested `if` only when the inner check should happen **because** the outer check passed. If you're just combining independent conditions, prefer `and`/`or` (next lesson) over nesting:
+
+```python
+# Nested — fine when dependent
+if logged_in:
+    if is_admin:
+        print("Access Granted")
+
+# Flattened — cleaner when just combining conditions
+if logged_in and is_admin:
+    print("Access Granted")
+```
+
+## Watch Out For
+
+- **Over-nesting** (3+ levels deep) hurts readability — look for ways to flatten with logical operators.
+- Indentation must be **consistent** at each nesting level, or Python raises `IndentationError` or misattributes a block.
