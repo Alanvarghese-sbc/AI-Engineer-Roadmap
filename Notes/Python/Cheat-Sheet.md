@@ -838,3 +838,72 @@ match operator:
 - Always include `case _:` as a safety net — without it, an unmatched value does nothing.
 - `match-case` can't hold a comparison expression as a case pattern (`case marks >= 90:` is invalid) — use `if` for that.
 - `|` inside a `case` means OR.
+
+# Lesson 9 (Part 1): `while` Loop — Cheat Sheet
+
+## Syntax
+
+```python
+while condition:
+    # code
+```
+
+Condition is checked **before** each pass; loop ends the moment it's `False`.
+
+## Basic Counting Pattern
+
+```python
+count = 1
+while count <= 5:
+    print(count)
+    count += 1
+```
+
+## Countdown Pattern
+
+```python
+count = 10
+while count >= 1:
+    print(count)
+    count -= 1
+```
+
+## Loop-Until-Input-Matches Pattern
+
+```python
+password = ""
+while password != "python123":
+    password = input("Enter Password: ")
+print("Login Successful")
+```
+
+## Accumulator Pattern (running total)
+
+```python
+total = 0
+i = 1
+while i <= n:
+    total += i
+    i += 1
+```
+
+## ⚠️ The #1 Danger: Infinite Loops
+
+```python
+# ❌ Infinite — count never changes
+while count <= 5:
+    print(count)
+
+# ✅ Always update the loop variable
+while count <= 5:
+    print(count)
+    count += 1
+```
+
+## Quick Checklist Before Running a `while` Loop
+
+- [ ] Is there a variable being tested in the condition?
+- [ ] Does something inside the loop **change** that variable?
+- [ ] Will the condition eventually become `False`?
+
+If any answer is "no," you likely have an infinite loop.

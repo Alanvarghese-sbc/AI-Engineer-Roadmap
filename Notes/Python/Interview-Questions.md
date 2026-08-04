@@ -326,3 +326,19 @@ The wildcard/default pattern — it matches anything that didn't match an earlie
 
 **5. Can `match-case` replace every `if` statement?**
 No. It's well-suited to discrete value matching, but it's not a good fit for range checks or compound boolean logic — those still belong in `if...elif...else`. The two tools are complementary, not interchangeable.
+# Lesson 9 (Part 1): `while` Loop — Interview Questions & Answers
+
+**1. What is a `while` loop?**
+A control structure that repeatedly executes a block of code **as long as** a given condition remains `True`. The condition is checked before every pass through the loop body.
+
+**2. When should you use a `while` loop instead of a `for` loop?**
+When the number of iterations isn't known in advance and depends on some condition being met at runtime — e.g. retrying a password prompt until the user gets it right, or processing input until a sentinel value appears. `for` loops are generally preferred when iterating a known number of times or over a known sequence.
+
+**3. What is an infinite loop?**
+A loop whose condition never becomes `False`, so it keeps running forever (or until the program is manually stopped/crashes). It usually happens by accident, e.g. forgetting to update the loop variable inside the loop body.
+
+**4. How do you stop a `while` loop?**
+By ensuring the condition eventually evaluates to `False` (e.g. incrementing/decrementing a counter until it crosses a threshold), or by using a `break` statement inside the loop body to exit immediately regardless of the condition (covered in a later part of this lesson).
+
+**5. Give one real-world use case for a `while` loop.**
+A login retry system: keep prompting for a password `while` the entered value doesn't match the correct one, and only proceed once it does.

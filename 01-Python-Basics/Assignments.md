@@ -2056,3 +2056,141 @@ match choice:
 - [ ] Build the Calculator
 - [ ] Build the Language Selector
 - [ ] Build the ATM Menu
+# Lesson 9 (Part 1): `while` Loop — Assignments
+
+## 🧠 Predict the Output
+
+```python
+# Q1
+i = 1
+while i <= 3:
+    print(i)
+    i += 1
+
+# Q2
+x = 5
+while x > 0:
+    print(x)
+    x -= 1
+
+# Q3
+n = 2
+while n <= 10:
+    print(n)
+    n += 2
+
+# Q4
+count = 1
+while count < 1:
+    print("Hello")
+    count += 1
+
+# Q5 ⭐ — Will this program stop? Why or why not?
+i2 = 1
+while i2 <= 3:
+    print("Python")
+```
+
+### ✅ Answers
+
+```text
+Q1 →
+1
+2
+3
+
+Q2 →
+5
+4
+3
+2
+1
+
+Q3 →
+2
+4
+6
+8
+10
+
+Q4 → (nothing prints — count < 1 is False from the very first check, so the
+       loop body never runs even once)
+
+Q5 → No, it will NOT stop — this is an infinite loop. i2 is never updated
+      inside the loop body, so "i2 <= 3" stays True forever and "Python"
+      prints endlessly. Fix: add `i2 += 1` inside the loop.
+```
+
+## 🛠 Mini Project 1 — Countdown
+
+Output `10` down to `1`, then `Blast Off!`.
+
+### ✅ Solution
+
+```python
+count = 10
+
+while count >= 1:
+    print(count)
+    count -= 1
+
+print("Blast Off!")
+```
+
+## 🛠 Mini Project 2 — Multiplication Table
+
+Input a number, print its multiplication table 1–10.
+
+### ✅ Solution
+
+```python
+number = int(input("Enter Number: "))
+
+i = 1
+while i <= 10:
+    print(f"{number} × {i} = {number * i}")
+    i += 1
+```
+
+## 🛠 Mini Project 3 — Password Retry
+
+Keep asking for the password until the correct one is entered.
+
+### ✅ Solution
+
+```python
+password = ""
+
+while password != "python123":
+    password = input("Enter Password: ")
+
+print("Login Successful")
+```
+
+## 🛠 Mini Project 4 — Sum of Numbers
+
+Input `n`, print the sum of `1` through `n`.
+
+### ✅ Solution
+
+```python
+n = int(input("Enter a number: "))
+
+total = 0
+i = 1
+
+while i <= n:
+    total += i
+    i += 1
+
+print(total)
+```
+
+## 🎯 Today's Assignment
+
+- [ ] Complete all 5 prediction questions (including Q5's explanation)
+- [ ] Build the Countdown project
+- [ ] Build the Multiplication Table project
+- [ ] Build the Password Retry project
+- [ ] Build the Sum of Numbers project
+- [ ] Commit your work:
