@@ -744,3 +744,201 @@ This does **not** check two usernames — `"Alan"` on its own is always truthy, 
 if username == "admin" or username == "Alan":
 ```
 Each comparison must be written out fully.
+# Lesson 8 (Part 6): `match-case` (Python 3.10+) — Notes
+
+**Estimated Time:** 2–3 hours
+**Difficulty:** ⭐⭐⭐☆☆
+
+This is the final lesson of the Conditionals module.
+
+## 🎯 Learning Objectives
+
+- Understand `match-case`
+- Replace long `if...elif...else` statements
+- Write cleaner menu-driven programs
+- Build calculators and CLI menus
+
+## Why `match-case`?
+
+A long `if...elif...else` chain for many discrete choices gets verbose:
+
+```python
+operator = "+"
+
+if operator == "+":
+    print("Addition")
+elif operator == "-":
+    print("Subtraction")
+elif operator == "*":
+    print("Multiplication")
+elif operator == "/":
+    print("Division")
+else:
+    print("Invalid")
+```
+
+`match-case` expresses the same logic more cleanly:
+
+```python
+operator = "+"
+
+match operator:
+    case "+":
+        print("Addition")
+    case "-":
+        print("Subtraction")
+    case "*":
+        print("Multiplication")
+    case "/":
+        print("Division")
+    case _:
+        print("Invalid")
+```
+
+## Syntax
+
+```python
+match variable:
+    case value1:
+        # code
+    case value2:
+        # code
+    case _:
+        # default — "if nothing else matched"
+```
+
+`case _:` is the wildcard/default case, similar in role to `else`.
+
+## Examples
+
+**Days:**
+```python
+day = 1
+
+match day:
+    case 1:
+        print("Monday")
+    case 2:
+        print("Tuesday")
+    case 3:
+        print("Wednesday")
+    case _:
+        print("Invalid Day")
+```
+```
+Monday
+```
+
+**Grades:**
+```python
+grade = "A"
+
+match grade:
+    case "A":
+        print("Excellent")
+    case "B":
+        print("Very Good")
+    case "C":
+        print("Good")
+    case _:
+        print("Try Again")
+```
+
+**Traffic signal:**
+```python
+signal = "Red"
+
+match signal:
+    case "Red":
+        print("Stop")
+    case "Yellow":
+        print("Ready")
+    case "Green":
+        print("Go")
+    case _:
+        print("Invalid Signal")
+```
+
+**Calculator:**
+```python
+a = 10
+b = 5
+operator = "*"
+
+match operator:
+    case "+":
+        print(a + b)
+    case "-":
+        print(a - b)
+    case "*":
+        print(a * b)
+    case "/":
+        print(a / b)
+    case _:
+        print("Invalid")
+```
+```
+50
+```
+
+## Multiple Values in One Case
+
+```python
+day = "Saturday"
+
+match day:
+    case "Saturday" | "Sunday":
+        print("Weekend")
+    case _:
+        print("Weekday")
+```
+```
+Weekend
+```
+
+The `|` operator means **OR** inside a `case` pattern.
+
+## When Should You Use `match-case`?
+
+**✅ Good fit:** menu systems, calculators, command-line tools, games, discrete option selection.
+
+**❌ Not a good fit:** range checking (`marks >= 90`), multiple Boolean conditions. `if...elif...else` remains the right tool for comparisons and ranges.
+
+## Common Mistakes
+
+**❌ Forgetting the default case**
+```python
+match day:
+    case 1:
+        print("Monday")
+# if day is 5, nothing happens — silently does nothing
+```
+**✔ Better** — always include a default:
+```python
+case _:
+    print("Invalid")
+```
+
+**❌ Using `match-case` for comparisons — this is invalid syntax**
+```python
+match marks:
+    case marks >= 90:   # ❌ SyntaxError-like misuse
+```
+**✔ Correct** — use `if` for range/comparison logic:
+```python
+if marks >= 90:
+    ...
+```
+
+## 📊 Conditionals Module Summary
+
+By the end of this lesson, the full Conditionals toolkit is covered:
+
+- `if`
+- `if...else`
+- `if...elif...else`
+- Nested `if`
+- `and`, `or`, `not`
+- `match-case`
+
+These are used throughout almost every Python application.

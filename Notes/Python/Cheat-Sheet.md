@@ -784,3 +784,57 @@ if age >= 18 or citizen:   # True even if age=10, as long as citizen is True
 # Probably meant:
 if age >= 18 and citizen:
 ```
+# Lesson 8 (Part 6): `match-case` — Cheat Sheet
+
+## Syntax
+
+```python
+match variable:
+    case value1:
+        # code
+    case value2:
+        # code
+    case _:
+        # default (like 'else')
+```
+
+## Multiple Values in One Case
+
+```python
+match day:
+    case "Saturday" | "Sunday":
+        print("Weekend")
+    case _:
+        print("Weekday")
+```
+
+## When to Use
+
+| ✅ Good fit | ❌ Not a good fit |
+|---|---|
+| Menus / CLI tools | Range checks (`marks >= 90`) |
+| Calculators | Boolean/compound conditions |
+| Games | |
+| Discrete option selection | |
+
+## Common Pattern: Calculator
+
+```python
+match operator:
+    case "+":
+        result = a + b
+    case "-":
+        result = a - b
+    case "*":
+        result = a * b
+    case "/":
+        result = a / b
+    case _:
+        result = "Invalid"
+```
+
+## Rules to Remember
+
+- Always include `case _:` as a safety net — without it, an unmatched value does nothing.
+- `match-case` can't hold a comparison expression as a case pattern (`case marks >= 90:` is invalid) — use `if` for that.
+- `|` inside a `case` means OR.

@@ -310,3 +310,19 @@ Yes — they can be combined and mixed with `not` in a single expression, e.g. `
 - `and`: a bank locker that needs **both** Key 1 and Key 2 to open.
 - `or`: a building entrance that accepts **either** an employee card **or** a visitor pass.
 - `not`: a website showing a "Please Login" message specifically when the user is **not** logged in.
+# Lesson 8 (Part 6): `match-case` — Interview Questions & Answers
+
+**1. What is `match-case`?**
+A structural pattern-matching statement introduced in Python 3.10 that compares a variable against a series of `case` patterns and runs the code block for the first one that matches — a cleaner alternative to long `if...elif...else` chains for discrete-value comparisons.
+
+**2. When should you use it?**
+For menu systems, calculators, command-line tools, games, or anywhere a variable is being compared against a fixed set of specific, discrete values (like `"+"`, `"-"`, `"*"`, `"/"`, or day numbers 1–7).
+
+**3. What is `case _`?**
+The wildcard/default pattern — it matches anything that didn't match an earlier `case`, playing the same role `else` plays in an `if...elif...else` chain. Without it, no matching value simply results in nothing happening.
+
+**4. Difference between `match-case` and `if...elif...else`?**
+`match-case` is built for matching a value against specific, discrete patterns (including combining values with `|` for OR) and tends to read cleaner for that use case. `if...elif...else` is built for arbitrary boolean conditions, comparisons, and ranges (`marks >= 90`), which `match-case` cannot directly express in its `case` patterns.
+
+**5. Can `match-case` replace every `if` statement?**
+No. It's well-suited to discrete value matching, but it's not a good fit for range checks or compound boolean logic — those still belong in `if...elif...else`. The two tools are complementary, not interchangeable.

@@ -1893,3 +1893,166 @@ else:
 - [ ] Build the Scholarship System
 - [ ] Build the Driving License Checker
 - [ ] Build the Website Access Checker
+# Lesson 8 (Part 6): `match-case` — Assignments
+
+## 🧠 Predict the Output
+
+```python
+# Q1
+day = 2
+match day:
+    case 1:
+        print("Monday")
+    case 2:
+        print("Tuesday")
+    case _:
+        print("Invalid")
+
+# Q2
+operator = "/"
+match operator:
+    case "+":
+        print("Add")
+    case "/":
+        print("Divide")
+    case _:
+        print("Invalid")
+
+# Q3
+grade = "C"
+match grade:
+    case "A":
+        print("Excellent")
+    case "B":
+        print("Good")
+    case _:
+        print("Average")
+
+# Q4
+day2 = "Sunday"
+match day2:
+    case "Saturday" | "Sunday":
+        print("Weekend")
+    case _:
+        print("Weekday")
+
+# Q5
+choice = 5
+match choice:
+    case 1:
+        print("One")
+    case 2:
+        print("Two")
+    case _:
+        print("Invalid Choice")
+```
+
+### ✅ Answers
+
+```text
+Q1 → Tuesday          (day == 2 matches the second case exactly)
+Q2 → Divide             (operator == "/" matches)
+Q3 → Average              (grade == "C" doesn't match "A" or "B", falls to default)
+Q4 → Weekend                (matches the "Saturday" | "Sunday" combined case)
+Q5 → Invalid Choice           (5 doesn't match 1 or 2, falls to default)
+```
+
+## 🛠 Mini Project 1 — Day Finder
+
+Input a day number 1–7, print the day name.
+
+### ✅ Solution
+
+```python
+day = int(input("Enter Day Number: "))
+
+match day:
+    case 1:
+        print("Monday")
+    case 2:
+        print("Tuesday")
+    case 3:
+        print("Wednesday")
+    case 4:
+        print("Thursday")
+    case 5:
+        print("Friday")
+    case 6:
+        print("Saturday")
+    case 7:
+        print("Sunday")
+    case _:
+        print("Invalid Day Number")
+```
+
+## 🛠 Mini Project 2 — Calculator
+
+### ✅ Solution
+
+```python
+num1 = float(input("Enter first number: "))
+operator = input("Enter operator (+, -, *, /): ")
+num2 = float(input("Enter second number: "))
+
+match operator:
+    case "+":
+        print("Result =", num1 + num2)
+    case "-":
+        print("Result =", num1 - num2)
+    case "*":
+        print("Result =", num1 * num2)
+    case "/":
+        print("Result =", num1 / num2)
+    case _:
+        print("Invalid operator")
+```
+
+## 🛠 Mini Project 3 — Language Selector
+
+### ✅ Solution
+
+```python
+choice = int(input("1: English  2: Malayalam  3: Hindi  4: Tamil\nChoose a language: "))
+
+match choice:
+    case 1:
+        print("Welcome!")
+    case 2:
+        print("Swagatham!")
+    case 3:
+        print("Namaste!")
+    case 4:
+        print("Vanakkam!")
+    case _:
+        print("Invalid choice")
+```
+
+## 🛠 Mini Project 4 — ATM Menu
+
+> A single-pass version — this gets upgraded to loop until "Exit" once Loops is covered.
+
+### ✅ Solution
+
+```python
+choice = input("1: Check Balance  2: Deposit  3: Withdraw  4: Exit\nChoose an option: ")
+
+match choice:
+    case "1":
+        print("Checking balance...")
+    case "2":
+        print("Processing deposit...")
+    case "3":
+        print("Processing withdrawal...")
+    case "4":
+        print("Exiting. Goodbye!")
+    case _:
+        print("Invalid option")
+```
+
+## 🎯 Today's Assignment
+
+- [ ] Complete all 5 prediction questions
+- [ ] Build the Day Finder
+- [ ] Build the Calculator
+- [ ] Build the Language Selector
+- [ ] Build the ATM Menu
