@@ -342,3 +342,19 @@ By ensuring the condition eventually evaluates to `False` (e.g. incrementing/dec
 
 **5. Give one real-world use case for a `while` loop.**
 A login retry system: keep prompting for a password `while` the entered value doesn't match the correct one, and only proceed once it does.
+# Lesson 9 (Part 2): `for` Loop — Interview Questions & Answers
+
+**1. What is the difference between `while` and `for`?**
+`while` repeats based on a condition being checked before each pass, and requires the programmer to manually update whatever variable controls that condition. `for` iterates directly over the items of a sequence (or values from `range()`) and automatically advances to the next item, stopping when there are none left — no manual counter management needed.
+
+**2. What can a `for` loop iterate over?**
+Any **iterable**: strings, lists, tuples, dictionaries, sets, `range()` objects, files, and many other objects that support iteration.
+
+**3. What is an iterable?**
+Any object capable of returning its elements one at a time — something you can loop over with `for`. Strings, lists, tuples, dicts, sets, and `range()` are all iterables in Python.
+
+**4. Why is `for` preferred over `while` in many cases?**
+It's more concise and less error-prone: there's no manual counter to initialize, update, or accidentally forget (which is how infinite loops happen with `while`). It also naturally expresses "do this for every item in this collection," which is a very common programming need.
+
+**5. Can you loop through a dictionary?**
+Yes. Looping directly over a dictionary (`for key in student:`) iterates over its **keys**. To get both keys and values together, use `.items()`: `for key, value in student.items():`.

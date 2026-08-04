@@ -907,3 +907,72 @@ while count <= 5:
 - [ ] Will the condition eventually become `False`?
 
 If any answer is "no," you likely have an infinite loop.
+# Lesson 9 (Part 2): `for` Loop — Cheat Sheet
+
+## Syntax
+
+```python
+for variable in sequence:
+    # code
+```
+
+## Iterating Over Different Types
+
+```python
+for i in range(1, 6):          # numbers 1–5
+    ...
+
+for ch in "Python":             # each character
+    ...
+
+for item in [1, 2, 3]:            # list items
+    ...
+
+for item in (1, 2, 3):             # tuple items
+    ...
+
+for key in {"a": 1, "b": 2}:        # dict keys only
+    ...
+
+for key, value in d.items():         # dict keys AND values
+    ...
+```
+
+## Accumulator Pattern
+
+```python
+total = 0
+for i in range(1, 6):
+    total += i
+```
+
+## Counting Pattern
+
+```python
+count = 0
+for ch in text:
+    if ch.lower() in "aeiou":
+        count += 1
+```
+
+## Manual Max/Min (without built-ins)
+
+```python
+highest = values[0]
+for v in values:
+    if v > highest:
+        highest = v
+```
+
+## `while` vs `for` — Quick Decision
+
+| Use `for` when... | Use `while` when... |
+|---|---|
+| You know how many times to repeat | The repeat count is unknown ahead of time |
+| Iterating over a collection | Looping depends on a condition becoming false |
+| e.g. print numbers 1–100 | e.g. retry password until correct |
+
+## Gotchas
+
+- Reassigning the loop variable inside the body **doesn't** affect what comes next from `range()`/the sequence.
+- Don't forget the colon `:` and consistent indentation.

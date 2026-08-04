@@ -126,3 +126,163 @@ while False:
 
 Login retry systems, ATM menus, chat applications, game loops, menu-driven CLI programs, reading data until the end of a file.
 
+# Lesson 9 (Part 2): `for` Loop — Notes
+
+**Estimated Time:** 4–5 hours
+**Difficulty:** ⭐⭐⭐⭐☆
+
+One of the most-used Python concepts across AI, Data Science, ML, Automation, and Backend development.
+
+## 🎯 Learning Objectives
+
+- Understand the `for` loop
+- Iterate over sequences
+- Use `range()`
+- Loop through strings, lists, tuples, dictionaries
+- Write cleaner code than `while` loops
+
+## What is a `for` Loop?
+
+Used to **iterate over a sequence** — a string, list, tuple, dictionary, set, range, file, or other iterable. Instead of asking "should I keep looping?" (like `while`), a `for` loop asks **"give me the next item"** — and stops automatically once there are no more items.
+
+## `while` vs `for`
+
+```python
+# while — you manually track and update the variable
+count = 1
+while count <= 5:
+    print(count)
+    count += 1
+
+# for — Python automatically moves to the next value
+for number in range(1, 6):
+    print(number)
+```
+
+## Syntax
+
+```python
+for variable in sequence:
+    # code
+```
+
+```python
+for letter in "Python":
+    print(letter)
+```
+
+## Examples
+
+**Print numbers with `range()`:**
+```python
+for i in range(1, 6):
+    print(i)
+```
+```
+1
+2
+3
+4
+5
+```
+
+**Loop through a string — one character at a time:**
+```python
+for ch in "Python":
+    print(ch)
+```
+```
+P
+y
+t
+h
+o
+n
+```
+
+**Loop through a list:**
+```python
+languages = ["Python", "Java", "C++", "Go"]
+
+for language in languages:
+    print(language)
+```
+
+**Loop through a tuple:**
+```python
+numbers = (10, 20, 30)
+
+for num in numbers:
+    print(num)
+```
+
+**Loop through a dictionary:**
+```python
+student = {"name": "Alan", "age": 23, "course": "MCA"}
+
+for key in student:
+    print(key)   # prints just the keys by default
+```
+
+To get keys and values together:
+```python
+for key, value in student.items():
+    print(key, ":", value)
+```
+```
+name : Alan
+age : 23
+course : MCA
+```
+
+**Summing numbers:**
+```python
+total = 0
+for i in range(1, 6):
+    total += i
+
+print(total)   # 15
+```
+
+**Multiplication table:**
+```python
+number = 7
+for i in range(1, 11):
+    print(f"{number} x {i} = {number * i}")
+```
+
+## Common Mistakes
+
+**❌ Forgetting the colon**
+```python
+for i in range(5)   # SyntaxError
+```
+**✔ Correct**
+```python
+for i in range(5):
+```
+
+**❌ Wrong indentation**
+```python
+for i in range(5):
+print(i)   # IndentationError
+```
+
+**❌ Modifying the loop variable doesn't change what comes next**
+```python
+for i in range(5):
+    i = 100   # has no effect — the next value still comes from range()
+```
+
+## `while` vs `for` — When to Use Which
+
+**Use `for`** when you know how many times to repeat, or you're iterating over a known collection.
+
+**Use `while`** when you don't know how many iterations are needed, and the loop depends on a condition becoming false.
+
+Examples: password retry → `while`; print numbers 1–100 → `for`.
+
+## Real-World Uses
+
+Processing datasets row by row, training ML models across multiple epochs, reading files line by line, iterating through API responses, processing images/videos, generating reports, cleaning data, building AI pipelines.
+

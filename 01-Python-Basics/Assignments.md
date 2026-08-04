@@ -2194,3 +2194,210 @@ print(total)
 - [ ] Build the Password Retry project
 - [ ] Build the Sum of Numbers project
 - [ ] Commit your work:
+
+# Lesson 9 (Part 2): `for` Loop — Assignments
+
+## 🧠 Predict the Output
+
+```python
+# Q1
+for i in range(3):
+    print(i)
+
+# Q2
+for ch in "AI":
+    print(ch)
+
+# Q3
+numbers = [2, 4, 6]
+for n in numbers:
+    print(n * 2)
+
+# Q4
+total = 0
+for i in range(1, 4):
+    total += i
+print(total)
+
+# Q5
+for i in range(5, 0, -1):
+    print(i)
+```
+
+### ✅ Answers
+
+```text
+Q1 →
+0
+1
+2
+(range(3) produces 0, 1, 2 — starts at 0 by default)
+
+Q2 →
+A
+I
+
+Q3 →
+4
+8
+12
+
+Q4 → 6          (1 + 2 + 3)
+
+Q5 →
+5
+4
+3
+2
+1
+(range(5, 0, -1) counts DOWN from 5 to 1, stopping before 0)
+```
+
+## 🛠 Mini Project 1 — Even Numbers
+
+Print all even numbers from 1 to 100.
+
+### ✅ Solution
+
+```python
+for i in range(2, 101, 2):
+    print(i)
+```
+
+## 🛠 Mini Project 2 — Factorial
+
+Input `5`, output `120` (5 × 4 × 3 × 2 × 1).
+
+### ✅ Solution
+
+```python
+number = int(input("Enter a number: "))
+
+factorial = 1
+for i in range(1, number + 1):
+    factorial *= i
+
+print(factorial)
+```
+
+## 🛠 Mini Project 3 — Count Vowels
+
+Input `"Artificial Intelligence"`, output `Vowels = 10`.
+
+### ✅ Solution
+
+```python
+text = input("Enter text: ")
+
+count = 0
+for ch in text:
+    if ch.lower() in "aeiou":
+        count += 1
+
+print("Vowels =", count)
+```
+
+## 🛠 Mini Project 4 — Shopping Cart Total
+
+```python
+prices = [120, 250, 99, 450]
+```
+
+### ✅ Solution
+
+```python
+prices = [120, 250, 99, 450]
+
+total = 0
+for price in prices:
+    total += price
+
+print("Total =", total)
+```
+
+## 🛠 Mini Project 5 — Student Marks
+
+```python
+marks = [85, 90, 76, 95, 60]
+```
+
+Print Average, Highest, Lowest.
+
+### ✅ Solution (without `max()`/`min()`, as suggested)
+
+```python
+marks = [85, 90, 76, 95, 60]
+
+total = 0
+highest = marks[0]
+lowest = marks[0]
+
+for mark in marks:
+    total += mark
+
+    if mark > highest:
+        highest = mark
+
+    if mark < lowest:
+        lowest = mark
+
+average = total / len(marks)
+
+print("Average:", average)
+print("Highest:", highest)
+print("Lowest :", lowest)
+```
+
+> The same result with built-ins, once you're comfortable with the manual version: `average = sum(marks) / len(marks)`, `highest = max(marks)`, `lowest = min(marks)`.
+
+## 🏆 Checkpoint Challenge — Student Report Card Generator
+
+Combines loops + conditionals + lists.
+
+### ✅ Solution
+
+```python
+names = ["Alan", "Priya", "Rahul", "Sneha"]
+marks_list = [85, 92, 67, 78]
+
+total = 0
+highest = marks_list[0]
+lowest = marks_list[0]
+
+for i in range(len(names)):
+    name = names[i]
+    marks = marks_list[i]
+    total += marks
+
+    if marks > highest:
+        highest = marks
+    if marks < lowest:
+        lowest = marks
+
+    if marks >= 90:
+        grade = "A"
+    elif marks >= 80:
+        grade = "B"
+    elif marks >= 70:
+        grade = "C"
+    elif marks >= 60:
+        grade = "D"
+    else:
+        grade = "F"
+
+    print(f"{name}: {marks} marks — Grade {grade}")
+
+average = total / len(marks_list)
+
+print()
+print("Total marks  :", total)
+print("Average marks:", average)
+print("Highest marks:", highest)
+print("Lowest marks :", lowest)
+```
+
+## 🎯 Today's Assignment
+
+- [ ] Complete all 5 prediction questions
+- [ ] Build all 5 mini projects (Even Numbers, Factorial, Count Vowels, Shopping Cart Total, Student Marks)
+- [ ] Build the Student Report Card Generator checkpoint challenge
