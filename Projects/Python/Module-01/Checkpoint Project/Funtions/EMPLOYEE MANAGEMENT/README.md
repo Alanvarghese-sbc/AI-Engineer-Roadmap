@@ -1,205 +1,137 @@
-# 👨‍💼 Employee Management System
+# Employee Management System
 
-A console-based **Employee Management System built with Python** to practice core Python programming concepts such as functions, lists, dictionaries, loops, lambda functions, sorting, CRUD operations, and menu-driven programs.
+A console-based **Employee Management System built with Python**.
+The project started as a simple CRUD application and was progressively improved with input validation, list comprehensions, JSON file persistence, and modular programming.
 
----
+## Features
 
-## 📌 Project Overview
+* Add new employees
+* Prevent duplicate employee IDs
+* Display all employees in a formatted table
+* Find an employee by ID
+* Delete an employee
+* Update employee information
+* Keep existing values while updating
+* Validate integer and floating-point inputs
+* Prevent negative salary and experience values
+* Store employee skills as a list
+* Calculate salary statistics
+* Sort employees by:
 
-This project allows users to manage employee records through a simple command-line interface.
+  * Salary
+  * Name
+  * Experience
+* Sort in ascending or descending order
+* Save employee data permanently to a JSON file
+* Load saved employees when the program starts
+* Handle missing or corrupted JSON files
+* Organize the application into separate Python modules
 
-Each employee contains:
+## Technologies Used
 
-* Employee ID
-* Name
-* Department
-* Salary
-* Experience
-* Skills
+* Python 3
+* JSON
+* File Handling
+* Functions
+* Lists
+* Dictionaries
+* List Comprehensions
+* Lambda Functions
+* `sorted()`
+* Exception Handling
+* Modular Programming
 
-The application supports adding, viewing, searching, updating, deleting, sorting employees, and calculating salary statistics.
-
----
-
-## 🚀 Features
-
-### 1. Add Employee
-
-Allows the user to create a new employee record.
-
-The program collects:
-
-* Employee ID
-* Employee name
-* Department
-* Salary
-* Experience
-* Skills
-
-Multiple skills can be entered using commas.
-
-Example:
-
-```text
-Python, SQL, FastAPI, Django
-```
-
----
-
-### 2. Display Employees
-
-Displays all employees in a formatted table.
-
-Example:
+## Project Structure
 
 ```text
---------------------------------------------------------------------------------
-| Id    | Name            | Department      |     Salary | Experience | Skills              |
---------------------------------------------------------------------------------
-| 101   | Alan Varghese   | AI              |     550000 |       0y   | Python, SQL         |
---------------------------------------------------------------------------------
+Employee-Management-System/
+│
+├── main.py
+├── employee.py
+├── validation.py
+├── storage.py
+├── employees.json
+└── README.md
 ```
 
----
+### `main.py`
 
-### 3. Find Employee
-
-Searches for an employee using their unique employee ID.
-
-Example:
+Responsible for starting the application and handling the main menu.
 
 ```text
-Enter the id: 101
+main()
+    ↓
+Load employees
+    ↓
+Display menu
+    ↓
+User selects operation
+    ↓
+Call appropriate function
 ```
 
-The employee's complete information is displayed if found.
+### `employee.py`
 
----
+Contains the main employee-management operations:
 
-### 4. Delete Employee
+* `employee_exist()`
+* `add_employee()`
+* `display_employees()`
+* `display_employee()`
+* `find_employees()`
+* `delete_employee()`
+* `update_employee()`
+* `salary_statistics()`
+* `sort_employees()`
 
-Deletes an employee using their employee ID.
+### `validation.py`
 
-Example:
+Contains reusable input-validation functions:
 
-```text
-Enter the employee Id to delete: 101
-```
+* `get_integer()`
+* `get_float()`
 
-The program confirms the deletion after successfully removing the employee.
+These functions handle:
 
----
+* Invalid numeric input
+* Minimum allowed values
+* Optional default values
 
-### 5. Update Employee
-
-Allows existing employee information to be modified.
-
-The user can update:
-
-* Name
-* Department
-* Salary
-* Experience
-
-Pressing **Enter** without entering a value keeps the existing value.
-
-Example:
-
-```text
-Name [Alan Varghese]:
-Department [AI]: Machine Learning
-Salary [550000]:
-Experience [0]: 1
-```
-
-Only the changed fields are updated.
-
----
-
-### 6. Salary Statistics
-
-Calculates salary-related statistics for all employees.
-
-Displays:
-
-* Total Payroll
-* Average Salary
-* Highest Salary
-* Lowest Salary
-
-Example:
-
-```text
-==============================
-SALARY STATISTICS
-==============================
-  Total Payroll: 2200000
- Average Salary: 550000.00
- Highest Salary: 750000
-  Lowest Salary: 400000
-```
-
----
-
-### 7. Sort Employees
-
-Employees can be sorted according to:
-
-1. Salary
-2. Name
-3. Experience
-
-The user can also choose:
-
-* Ascending
-* Descending
-
-The sorting functionality uses Python's `sorted()` function with a `lambda` function.
-
-Example:
+For example:
 
 ```python
-sorted(
-    employees,
-    key=lambda employee: employee["salary"],
-    reverse=reverse
+salary = get_integer(
+    f"Salary [{employee['salary']}]: ",
+    0,
+    employee['salary']
 )
 ```
 
----
+Pressing **Enter** keeps the existing salary.
 
-### 8. Exit
+### `storage.py`
 
-Closes the Employee Management System.
+Handles JSON persistence:
 
----
+* `load_employees()`
+* `save_employees()`
 
-## 🧠 Python Concepts Practiced
+Employee data is stored in:
 
-This project was created as a Python fundamentals checkpoint and uses several important concepts.
-
-### Variables
-
-```python
-salary = 550000
-experience = 1.5
+```text
+employees.json
 ```
 
-### Lists
+The application loads the data when it starts and saves changes after adding, updating, or deleting employees.
+
+## Employee Data Structure
+
+Each employee is represented as a dictionary:
 
 ```python
-employees = []
-skills = ["Python", "SQL"]
-```
-
-### Dictionaries
-
-Employee information is stored using dictionaries:
-
-```python
-employee = {
+{
     "id": 101,
-    "name": "Alan Varghese",
+    "name": "Alan",
     "department": "AI",
     "salary": 550000,
     "experience": 0,
@@ -207,111 +139,175 @@ employee = {
 }
 ```
 
-### Functions
+Multiple employees are stored inside a list:
 
-The project is divided into separate functions:
+```python
+employees = [
+    {
+        "id": 101,
+        "name": "Alan",
+        "department": "AI",
+        "salary": 550000,
+        "experience": 0,
+        "skills": ["Python", "SQL"]
+    }
+]
+```
+
+## Input Validation
+
+The project uses reusable validation functions instead of repeatedly writing `try-except` blocks.
+
+### Integer Validation
+
+```python
+def get_integer(prompt, min_value=None, default=None):
+    while True:
+        val = input(prompt).strip()
+
+        if not val:
+            return default
+
+        try:
+            val = int(val)
+
+            if min_value is not None and val < min_value:
+                print(
+                    f"Enter a value greater than or equal to {min_value}."
+                )
+                continue
+
+            return val
+
+        except ValueError:
+            print("Enter a valid number.")
+```
+
+### Float Validation
+
+A similar helper is used for floating-point values such as employee experience.
+
+This allows the same validation logic to be reused throughout the application.
+
+## Duplicate ID Prevention
+
+Before adding an employee, the program checks whether the ID already exists.
+
+```python
+return any(emp["id"] == id for emp in employees)
+```
+
+This uses Python's `any()` function together with a generator expression.
+
+Example:
 
 ```text
-add_employee()
-display_employees()
-display_employee()
-find_employees()
-delete_employee()
-update_employee()
-salary_statistics()
-sort_employees()
-main()
+Enter employee ID: 101
+
+Employee ID already exists.
+Try Again
 ```
 
-### `*args`
+## List Comprehension
 
-Previously practiced for functions that accept multiple values:
+Employee skills are processed using a list comprehension:
 
 ```python
-def total_salary(*salaries):
-    ...
+skills = [
+    skill.strip()
+    for skill in user_skills.split(",")
+    if skill.strip()
+]
 ```
 
-### `**kwargs`
-
-Previously practiced for passing employee details as keyword arguments:
+Salary statistics also use list comprehension:
 
 ```python
-def display_employee(**details):
-    ...
+salaries = [employee["salary"] for employee in employees]
 ```
 
-### Lambda Functions
+## Sorting
 
-Used for filtering and sorting:
+Employees can be sorted using `sorted()` and lambda functions.
 
-```python
-lambda employee: employee["salary"]
-```
-
-### `filter()`
-
-Used to filter employees based on conditions:
+Example:
 
 ```python
-filter(
-    lambda employee: employee["salary"] > 60000,
-    employees
+key = lambda employee: employee["salary"]
+
+return sorted(
+    employees,
+    key=key,
+    reverse=reverse
 )
 ```
 
-### `map()`
+Available sorting options:
 
-Previously practiced for modifying salary values:
-
-```python
-map(lambda salary: salary * 1.1, salaries)
+```text
+1. Salary
+2. Name
+3. Experience
 ```
 
-### `reduce()`
+The user can choose:
 
-Previously practiced for combining multiple values:
-
-```python
-reduce(lambda x, y: x + y, salaries)
+```text
+Ascending
+Descending
 ```
 
-### Recursion
+The original employee list is not modified because `sorted()` returns a new list.
 
-Previously practiced using a recursive function:
+## Salary Statistics
 
-```python
-def experience_years(year):
-    if year == 0:
-        return
+The application calculates:
 
-    print(year)
-    experience_years(year - 1)
+* Total payroll
+* Average salary
+* Highest salary
+* Lowest salary
+
+Example:
+
+```text
+==============================
+SALARY STATISTICS
+==============================
+  Total Payroll: 125000
+  Average Salary: 31250.00
+  Highest Salary: 50000
+  Lowest Salary: 25000
 ```
 
-### Sorting
+## JSON Persistence
 
-The project uses:
+Employee data is stored in `employees.json`.
 
-```python
-sorted()
-```
-
-with:
+### Saving
 
 ```python
-key=lambda ...
+with open("employees.json", "w") as file:
+    json.dump(employees, file, indent=4)
 ```
 
-and:
+### Loading
 
 ```python
-reverse=True
+with open("employees.json", "r") as file:
+    return json.load(file)
 ```
 
-### CRUD Operations
+The application also handles:
 
-The project implements the fundamental CRUD operations:
+* Missing JSON file
+* Empty/corrupted JSON file
+
+If the file does not exist, the application starts with an empty employee list.
+
+## CRUD Operations
+
+The project implements the four fundamental CRUD operations:
 
 | Operation | Function                                  |
 | --------- | ----------------------------------------- |
@@ -320,63 +316,7 @@ The project implements the fundamental CRUD operations:
 | Update    | `update_employee()`                       |
 | Delete    | `delete_employee()`                       |
 
----
-
-## 🗂️ Project Structure
-
-Current project:
-
-```text
-EMPLOYEE MANAGEMENT/
-│
-├── EMPLOYEE MANAGEMENT.py
-└── README.md
-```
-
-The Python file contains:
-
-```text
-Employee Data
-     │
-     ├── add_employee()
-     ├── display_employees()
-     ├── display_employee()
-     ├── find_employees()
-     ├── delete_employee()
-     ├── update_employee()
-     ├── salary_statistics()
-     ├── sort_employees()
-     │
-     └── main()
-```
-
----
-
-## ▶️ How to Run
-
-### 1. Clone or download the project
-
-Place the project in your desired directory.
-
-### 2. Make sure Python is installed
-
-Check:
-
-```bash
-python --version
-```
-
-### 3. Run the program
-
-```bash
-python "EMPLOYEE MANAGEMENT.py"
-```
-
----
-
-## 🖥️ Main Menu
-
-When the program starts:
+## Example Menu
 
 ```text
 ==============================
@@ -395,102 +335,125 @@ When the program starts:
 Enter your choice (1-8):
 ```
 
----
+## How to Run
 
-## 💾 Current Data Storage
+Make sure Python 3 is installed.
 
-Currently, employee information is stored **in memory** using a Python list of dictionaries.
+Run the application from the project directory:
 
-Example:
-
-```python
-employees = [
-    {
-        "id": 101,
-        "name": "Alan Varghese",
-        "department": "AI",
-        "salary": 550000,
-        "experience": 0,
-        "skills": ["Python", "SQL"]
-    }
-]
+```bash
+python main.py
 ```
 
-### Important
+On some systems:
 
-The data is **not permanently stored**.
+```bash
+python3 main.py
+```
 
-When the program closes, newly added or modified employees are lost.
-
-Future versions can use:
-
-* JSON
-* CSV
-* SQLite
-* MySQL
-
-for permanent storage.
-
----
-
-## 🔮 Future Improvements
-
-Possible improvements for future versions:
-
-* [ ] Add `try/except` input validation
-* [ ] Prevent duplicate employee IDs
-* [ ] Validate salary and experience
-* [ ] Add employee count
-* [ ] Search by name
-* [ ] Search by department
-* [ ] Filter employees by salary
-* [ ] Filter employees by skills
-* [ ] Edit employee skills
-* [ ] Add confirmation before deletion
-* [ ] Store data in JSON
-* [ ] Add CSV support
-* [ ] Add SQLite database
-* [ ] Separate code into multiple Python modules
-* [ ] Add unit tests
-* [ ] Build a GUI version
-* [ ] Convert the project into a web application using FastAPI/Django
-
----
-
-## 🎯 Learning Objective
-
-The main purpose of this project is to apply Python fundamentals in a practical application instead of solving isolated coding exercises.
-
-The project combines:
+The program will automatically load existing employee data from:
 
 ```text
-Python Fundamentals
-        ↓
-Functions
-        ↓
-Lists & Dictionaries
-        ↓
-CRUD Operations
-        ↓
-Lambda / Filter / Map / Reduce
-        ↓
-Sorting
-        ↓
-Menu-Driven Application
-        ↓
-Employee Management System
+employees.json
 ```
 
----
+If the file does not exist, a new employee list will be created.
 
-## 👨‍💻 Author
+## Concepts Practiced
+
+This project helped practice the following Python concepts:
+
+### Beginner
+
+* Variables
+* Data types
+* Input/output
+* Conditions
+* Loops
+* Lists
+* Dictionaries
+* Strings
+
+### Intermediate
+
+* Functions
+* Function parameters
+* Return values
+* `try-except`
+* File handling
+* JSON
+* List comprehensions
+* Generator expressions
+* `any()`
+* `sum()`
+* `min()`
+* `max()`
+* `sorted()`
+* Lambda functions
+
+### Application Development
+
+* CRUD operations
+* Input validation
+* Data persistence
+* Modular programming
+* Separation of responsibilities
+* Reusable helper functions
+
+## Future Improvements
+
+Possible future versions could include:
+
+* Object-Oriented Programming using classes
+* Search employees by name or department
+* Filter employees by salary or experience
+* Update employee skills
+* Delete confirmation
+* Better error handling
+* CSV export/import
+* Database integration using SQLite
+* Login/authentication
+* GUI using Tkinter
+* REST API using FastAPI
+* Web version using Django
+* Unit testing with `pytest`
+
+## Learning Progression
+
+The project evolved through several stages:
+
+```text
+Basic Python
+     ↓
+Lists & Dictionaries
+     ↓
+Functions
+     ↓
+CRUD Operations
+     ↓
+Exception Handling
+     ↓
+Input Validation
+     ↓
+List Comprehensions
+     ↓
+Lambda & Sorting
+     ↓
+File Handling
+     ↓
+JSON Persistence
+     ↓
+Modular Programming
+     ↓
+Object-Oriented Programming
+     ↓
+Database
+     ↓
+API / Web Application
+```
+
+## Author
 
 **Alan Varghese**
 
-MCA Graduate | Software Developer | Python | Data Structures | SQL
-
----
-
-## 📄 License
-
-This project is created for **learning and educational purposes**.
+MCA Graduate | Python Developer | Software Development Enthusiast
