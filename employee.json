@@ -1,0 +1,20 @@
+[
+    {
+        "id": 101,
+        "name": "Alan",
+        "salary": 25000,
+        "skills": [
+            "Python",
+            "SQL"
+        ]
+    },
+    {
+        "id": 102,
+        "name": "John",
+        "salary": 30000,
+        "skills": [
+            "Java",
+            "MySQL"
+        ]
+    }
+]

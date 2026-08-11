@@ -1,47 +1,12 @@
-employees = [{
-    "id":101,
-        "name":"alan",
-        "department":"bio",
-        "salary":10000,
-        "experience":1.2,
-        "skills":["css","javascript"]
-    }]
+from validation import get_float,get_integer
+from storage import save_employees,load_employees
 
-def get_integer(prompt, min_value=None, default=None):
-    while True:
-        val = input(prompt).strip()
-
-        if not val:
-            return default
-        try:
-            val = int(val)
-            if min_value is not None and val < min_value:
-                print(f"Enter a value greater than or equal to {min_value}.")
-                continue
-            return val
-        except ValueError:
-            print("Enter a valid number : ")
-    
-
-def get_float(prompt, min_value=None, default=None):
-    while True:
-        val = input(prompt).strip()
-        if not val:
-            return default
-        try:
-            val = float(val)
-            if min_value is not None and val <min_value:
-                 print(f"Enter a value greater than or equal to {min_value}.")
-                 continue
-            return val
-        except ValueError:
-            print("Enter a valid number : ")
 
 def employee_exist(employees, id):
     # for emp in employees:
     #     if emp['id'] == id:
     #         return True
-    return any(emp[id] == id for emp in employees)
+    return any(emp["id"] == id for emp in employees)
 
     # return False
 
@@ -82,11 +47,12 @@ def add_employee(employees):
         
     skills = []
     user_skills = input("Enter skills by comma separared")
-    raw_skills_list = user_skills.split(",")
-    for skill in raw_skills_list:
-        cleaned_skill = skill.strip()
-        if cleaned_skill:
-            skills.append(cleaned_skill)
+    # raw_skills_list = user_skills.split(",")
+    # for skill in raw_skills_list:
+    #     cleaned_skill = skill.strip()
+    #     if cleaned_skill:
+    #         skills.append(cleaned_skill)
+    skills = [skill.strip() for skill in user_skills.split(",") if skill.strip()]
 
 
     employee = {
@@ -98,6 +64,8 @@ def add_employee(employees):
         "skills":skills
     }
     employees.append(employee)
+    save_employees(employees)
+
 
 
 
@@ -158,6 +126,9 @@ def find_employees(employees):
             display_employee(employee)
             return
 
+
+    
+
     print("Employee not found.")
 
 def delete_employee(employees):
@@ -167,6 +138,7 @@ def delete_employee(employees):
         if employee['id'] == employee_id:
             name = employee['name']
             employees.remove(employee)
+            save_employees(employees)
             print(f"Employee '{name}' is removed Successfullt")
             return
         
@@ -223,23 +195,25 @@ def update_employee(employees):
             #     employee['experience'] = float(exp)
             employee['experience'] = exp
 
+            save_employees(employees)
+
             print("\nEmployee updated successfully.\n")
 
             display_employee(employee)
+
             return
         
     print("Employee not found.")
 
 def salary_statistics(employees):
 
-    salaries = []
-
     if not employees:
          print("No employees available.")
          return
 
-    for employee in employees:
-        salaries.append(employee['salary'])
+    # for employee in employees:
+    #     salaries.append(employee['salary'])
+    salaries = [employee["salary"] for employee in employees]
 
     total = sum(salaries)
     average = total/len(salaries)
@@ -303,52 +277,3 @@ def sort_employees(employees):
 
 
 # print(employees)
-
-def main():
-    while True:
-        print("=" *30)
-        print("     EMPLOYEE MANAGEMENT")
-        print("=" *30)
-        # print("\n1. Add Employee\n2. Display Employees\n3. Find Employee\n4. Delete Employee\n5. Update Employee\n6. Salary Statistics\n7. Sort Employees\n8. Exit")
-        print("""
-            1. Add Employee
-            2. Display Employees
-            3. Find Employee
-            4. Delete Employee
-            5. Update Employee
-            6. Salary Statistics
-            7. Sort Employees
-            8. Exit
-            """)
-        choice = input("\nEnter your choice(1-8): ")
-        if choice == "1":
-            add_employee(employees)
-        elif choice == "2":
-            display_employees(employees)
-        elif choice == "3":
-            find_employees(employees)
-        elif choice == "4":
-            delete_employee(employees)
-        elif choice == "5":
-            update_employee(employees)
-        elif choice == "6":
-            salary_statistics(employees)
-        elif choice == "7":
-            sorted_employees = sort_employees(employees)
-            if sorted_employees:
-                display_employees(sorted_employees)
-        elif choice == "8":
-            break
-        else:
-            print("Invalid Input-(Try something b/w '1-8')")
-
-
-if __name__ == "__main__":
-    main()
-
-
-
-
-
-    
-        

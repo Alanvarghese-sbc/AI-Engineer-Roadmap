@@ -1,0 +1,5 @@
+Alan
+Computer Application
+25000
+Python
+SQL
