@@ -1,11 +1,85 @@
-employees = []
+employees = [{
+    "id":101,
+        "name":"alan",
+        "department":"bio",
+        "salary":10000,
+        "experience":1.2,
+        "skills":["css","javascript"]
+    }]
+
+def get_integer(prompt, min_value=None, default=None):
+    while True:
+        val = input(prompt).strip()
+
+        if not val:
+            return default
+        try:
+            val = int(val)
+            if min_value is not None and val < min_value:
+                print(f"Enter a value greater than or equal to {min_value}.")
+                continue
+            return val
+        except ValueError:
+            print("Enter a valid number : ")
+    
+
+def get_float(prompt, min_value=None, default=None):
+    while True:
+        val = input(prompt).strip()
+        if not val:
+            return default
+        try:
+            val = float(val)
+            if min_value is not None and val <min_value:
+                 print(f"Enter a value greater than or equal to {min_value}.")
+                 continue
+            return val
+        except ValueError:
+            print("Enter a valid number : ")
+
+def employee_exist(employees, id):
+    # for emp in employees:
+    #     if emp['id'] == id:
+    #         return True
+    return any(emp[id] == id for emp in employees)
+
+    # return False
 
 def add_employee(employees):
-    id = int(input("Enter employee ID : "))
+
+    # while True:
+    #     try:  
+    #         id = int(input("Enter employee ID : "))
+    #         break
+    #     except ValueError:
+    #         print("Enter a valid number : ")
+
+    while True:
+         employee_id = get_integer("Enter employee ID : ",1)
+         if employee_exist(employees, employee_id):
+             print("Employee Id already Exist.\n Try Again")
+         else:
+            break
+         
     name = input("Enter employee name : ")
     dept = input("Enter department : ")
-    salary = int(input("Enter salary : "))
-    experience = float(input("Enter experience : "))
+    # while True:
+    #     try:
+    #         salary = int(input("Enter salary : "))
+    #         break
+    #     except ValueError:
+    #          print("Enter a valid number : ")
+    salary = get_integer("Enter salary : ",0)
+
+    # while True:
+    #         try:
+    #             experience = float(input("Enter experience : "))
+    #             break
+    #         except ValueError:
+    #              print("Enter a valid number : ")
+
+    experience = get_float("Enter the experience : ",0)
+        
     skills = []
     user_skills = input("Enter skills by comma separared")
     raw_skills_list = user_skills.split(",")
@@ -16,7 +90,7 @@ def add_employee(employees):
 
 
     employee = {
-        "id": id,
+        "id": employee_id,
         "name": name,
         "department":dept,
         "salary": salary,
@@ -24,6 +98,9 @@ def add_employee(employees):
         "skills":skills
     }
     employees.append(employee)
+
+
+
 
 
 def display_employees(employees):
@@ -73,7 +150,7 @@ def display_employee(employee):
 
 
 def find_employees(employees):
-    employee_id = int(input("Enter the id : "))
+    employee_id = get_integer("Enter the id : ",1)
 
     for employee in employees:
         if employee["id"] == employee_id:
@@ -84,7 +161,7 @@ def find_employees(employees):
     print("Employee not found.")
 
 def delete_employee(employees):
-    employee_id = int(input('Enter the employee Id to delete: '))
+    employee_id = get_integer('Enter the employee Id to delete: ',1)
 
     for employee in employees:
         if employee['id'] == employee_id:
@@ -96,28 +173,55 @@ def delete_employee(employees):
     print("Employee not found")
 
 def update_employee(employees):
-    employee_id = int(input("Enter employee ID to update : "))
+    employee_id = get_integer("Enter employee ID to update : ",1)
 
     for employee in employees:
         if employee['id'] == employee_id:
             print("\nPress Enter to keep the current value.\n")
 
-            name = input(f"Name [{employee['name']}]: ")
-            dpt = input(f"Department [{employee['department']}]: ")
-            salary = input(f"Salary [{employee['salary']}]: ")
-            exp = input(f"Experience [{employee['experience']}]: ")
+            name = input(f"Name [{employee['name']}]: ").strip()
+            dpt = input(f"Department [{employee['department']}]: ").strip()
 
-            if name.strip():
+            salary = get_integer(
+                f"Salary [{employee['salary']}]: ",
+                0,
+                employee['salary']
+
+            )
+            # while True:
+            #     salary = input(f"Salary [{employee['salary']}]: ").strip()
+            #     if not salary:
+            #         break
+            #     if salary:
+            #         try:
+            #             salary = int(salary)
+            #             if salary < 0:
+            #                 print("Salary cannot be negative")
+            #                 # salary = input("Enter salary again: ").strip()
+            #                 continue
+            #             employee['salary'] = salary
+            #             break
+            #         except ValueError:
+            #             print("Enter a valid salary!")
+            # salary = get_integer(f"Salary [{employee['salary']}]: ",0)
+            # exp = input(f"Experience [{employee['experience']}]: ").strip()
+            exp = get_float(
+                f"Experience [{employee['experience']}]: ",
+                0,
+                employee['experience']
+            )
+
+            if name:
                 employee['name'] = name.strip()
 
-            if dpt.strip():
+            if dpt:
                 employee['department'] = dpt.strip()
 
-            if salary.strip():
-                employee['salary'] = int(salary)
+            employee['salary'] = salary
 
-            if exp.strip():
-                employee['experience'] = float(exp)
+            # if exp:
+            #     employee['experience'] = float(exp)
+            employee['experience'] = exp
 
             print("\nEmployee updated successfully.\n")
 
